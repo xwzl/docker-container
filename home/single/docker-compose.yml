@@ -33,8 +33,7 @@ services:
       - ./elasticsearch/master/data:/usr/share/elasticsearch/data
       - ./elasticsearch/master/logs:/usr/share/elasticsearch/logs
     environment:
-      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
-      - discovery.type=single-node
+      - "discovery.type=single-node"
   kibana:
     container_name: kibana
     hostname: kibana

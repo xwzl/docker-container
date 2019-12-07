@@ -223,7 +223,7 @@ services:
     restart: always
     working_dir: /home
     # 编译
-    build: ../elk
+    build: ..
     volumes:
       - ./logs:/logs
     depends_on:

@@ -95,7 +95,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/single" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/home" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -139,6 +139,7 @@
       <workItem from="1575713792427" duration="13000" />
       <workItem from="1575713809868" duration="330000" />
       <workItem from="1575714270421" duration="35000" />
+      <workItem from="1575714311561" duration="656000" />
     </task>
     <servers />
   </component>
@@ -154,6 +155,18 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1575714305419" />
+    <state x="880" y="293" key="CommitChangelistDialog2" timestamp="1575714328913">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="880" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1575714328913" />
+    <state x="1128" y="590" key="Github.ShareDialog" timestamp="1575715134960">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1128" y="590" key="Github.ShareDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1575715134960" />
+    <state x="1072" y="404" key="Github.UntrackedFilesDialog" timestamp="1575715138897">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1072" y="404" key="Github.UntrackedFilesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1575715138897" />
     <state x="781" y="342" key="SettingsEditor" timestamp="1575714298385">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

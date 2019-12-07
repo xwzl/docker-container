@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ffaf66d0-a80e-4365-a0a1-452af018410f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/docker-container.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/es-master.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/es-slave1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/es-slave2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/filebeat.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/init.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/kibana.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/logstash-filebeat.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/my.cnf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/nacos.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/nacos.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/nginx.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/single/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/es-master.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/filebeat.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/init.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/kibana.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/logstash-filebeat.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/logstash.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/nginx.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node2-slave/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node2-slave/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node2-slave/es-slave1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node2-slave/filebeat.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node2-slave/init.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node3-slave/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node3-slave/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node3-slave/es-slave2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node3-slave/filebeat.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-cluster/node3-slave/init.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-stand-alone/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-stand-alone/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-stand-alone/es-master.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-stand-alone/es-slave1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-stand-alone/es-slave2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-stand-alone/filebeat.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-stand-alone/init.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-stand-alone/kibana.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-stand-alone/logstash-filebeat.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodes-stand-alone/nginx.conf" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1UeOXsOF804A2oL3v8Q8StdKG27" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/single" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\root\docker-container" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\root\docker-container\home\single" />
+      <recent name="D:\root\docker-contanier" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ffaf66d0-a80e-4365-a0a1-452af018410f" name="Default Changelist" comment="" />
+      <created>1575713636521</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575713636521</updated>
+      <workItem from="1575713639533" duration="70000" />
+      <workItem from="1575713713995" duration="48000" />
+      <workItem from="1575713792427" duration="13000" />
+      <workItem from="1575713809868" duration="330000" />
+      <workItem from="1575714270421" duration="35000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1512" y="358" key="#Project_Structure" timestamp="1575713644659">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1512" y="358" key="#Project_Structure/0.0.2560.1400@0.0.2560.1400" timestamp="1575713644659" />
+    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1575714305419">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1575714305419" />
+    <state x="781" y="342" key="SettingsEditor" timestamp="1575714298385">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="781" y="342" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1575714298385" />
+  </component>
+</project>

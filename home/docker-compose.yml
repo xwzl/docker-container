@@ -36,7 +36,7 @@ services:
     hostname: redis
     container_name: redis
     ports:
-      - 6379:6379
+      - 15826:6379
   mysql:
     image: mysql
     restart: always

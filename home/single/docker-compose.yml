@@ -47,7 +47,15 @@ services:
       - elasticsearch.hosts=http://es-master:9200
     depends_on:
       - es-master
-
+  cerebro:
+    image: lmenezes/cerebro
+    container_name: cerebro
+    ports:
+      - "9000:9000"
+    command:
+      - -Dhosts.0.host=http://es-master:9200
+    depends_on:
+      - es-master
   filebeat:
     # 容器名称
     container_name: filebeat

@@ -170,6 +170,16 @@ services:
       - es-master
       - es-slave1
       - es-slave2
+  cerebro:
+    image: lmenezes/cerebro
+    container_name: cerebro
+    restart: always
+    ports:
+      - "9000:9000"
+    command:
+      - -Dhosts.0.host=http://es-master:9200
+    depends_on:
+      - es-master
 
   filebeat:
     # 容器名称

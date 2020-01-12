@@ -93,6 +93,7 @@
       <workItem from="1575714270421" duration="35000" />
       <workItem from="1575714311561" duration="656000" />
       <workItem from="1578754958110" duration="696000" />
+      <workItem from="1578797436690" duration="1210000" />
     </task>
     <servers />
   </component>
@@ -108,10 +109,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1575714305419" />
-    <state x="880" y="293" key="CommitChangelistDialog2" timestamp="1578755659141">
+    <state x="880" y="293" key="CommitChangelistDialog2" timestamp="1578802737038">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="880" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1578755659141" />
+    <state x="880" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1578802737038" />
+    <state x="248" y="128" key="DiffContextDialog" timestamp="1578802736551">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="248" y="128" key="DiffContextDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1578802736551" />
     <state x="1128" y="590" key="Github.ShareDialog" timestamp="1575715134960">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -128,6 +133,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="342" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1575714298385" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1578755685566">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1578755685566" />
     <state x="978" y="491" key="git4idea.merge.GitPullDialog" timestamp="1578754965139">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

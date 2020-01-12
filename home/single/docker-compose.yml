@@ -50,6 +50,7 @@ services:
   cerebro:
     image: lmenezes/cerebro
     container_name: cerebro
+    restart: always
     ports:
       - "9000:9000"
     command:

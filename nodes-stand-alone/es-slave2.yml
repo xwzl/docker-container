@@ -60,7 +60,7 @@ network.host: 0.0.0.0
 #
 # Set a custom port for HTTP:
 # 设置对外服务的http端口
-http.port: 9202
+#http.port: 9202
 # 设置节点间交互的tcp端口
 #transport.port: 9302
 #

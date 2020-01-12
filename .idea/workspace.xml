@@ -4,6 +4,9 @@
     <list default="true" id="ffaf66d0-a80e-4365-a0a1-452af018410f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/es-slave1.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home/es-slave1.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/es-slave2.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home/es-slave2.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/single/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home/single/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,10 +120,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1512" y="358" key="#Project_Structure/0.0.2560.1400@0.0.2560.1400" timestamp="1575713644659" />
-    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1575714305419">
+    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1578813394497">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1575714305419" />
+    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1578813394497" />
     <state x="880" y="293" key="CommitChangelistDialog2" timestamp="1578802751491">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -149,9 +152,17 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1578802759308" />
+    <state x="956" y="433" width="786" height="600" key="find.popup" timestamp="1578812676410">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="956" y="433" width="786" height="600" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1578812676410" />
     <state x="978" y="491" key="git4idea.merge.GitPullDialog" timestamp="1578754965139">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="978" y="491" key="git4idea.merge.GitPullDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1578754965139" />
+    <state x="936" y="353" width="670" height="676" key="search.everywhere.popup" timestamp="1578812664445">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="936" y="353" width="670" height="676" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1578812664445" />
   </component>
 </project>

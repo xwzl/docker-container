@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ffaf66d0-a80e-4365-a0a1-452af018410f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/logstash/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logstash/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logstash/logstash-filebeat.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logstash/logstash-filter-date.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logstash/logstash-filter-grok.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logstash/logstash-multiline-code.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logstash/logstash-multiline-timestamp.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logstash/logstash-multiline.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logstash/logstash-stdin.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/es-slave1.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home/es-slave1.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/es-slave2.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home/es-slave2.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/single/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/home/single/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodes-cluster/node1-master/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodes-cluster/node1-master/init.sh" beforeDir="false" afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/init.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodes-stand-alone/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/nodes-stand-alone/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodes-stand-alone/init.sh" beforeDir="false" afterPath="$PROJECT_DIR$/nodes-stand-alone/init.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +51,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="ToolWindowVersion Control.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/home" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/logstash" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -60,9 +70,12 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\root\docker-container\logstash" />
+      <recent name="D:\root\docker-container\home" />
       <recent name="D:\root\docker-container" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\root\docker-container\logstash" />
       <recent name="D:\root\docker-container\home\single" />
       <recent name="D:\root\docker-contanier" />
     </key>
@@ -97,6 +110,12 @@
       <workItem from="1575714311561" duration="656000" />
       <workItem from="1578754958110" duration="696000" />
       <workItem from="1578797436690" duration="1811000" />
+      <workItem from="1580882656582" duration="686000" />
+      <workItem from="1580911965398" duration="615000" />
+      <workItem from="1580915945153" duration="1993000" />
+      <workItem from="1580956352210" duration="1782000" />
+      <workItem from="1580959566123" duration="1426000" />
+      <workItem from="1580962293006" duration="12092000" />
     </task>
     <task id="LOCAL-00001" summary="重启">
       <created>1578802752359</created>
@@ -111,6 +130,42 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="重启" />
     <option name="LAST_COMMIT_MESSAGE" value="重启" />
@@ -120,18 +175,18 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1512" y="358" key="#Project_Structure/0.0.2560.1400@0.0.2560.1400" timestamp="1575713644659" />
-    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1578813394497">
+    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1580982716423">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1578813394497" />
-    <state x="880" y="293" key="CommitChangelistDialog2" timestamp="1578802751491">
+    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580982716423" />
+    <state x="880" y="293" key="CommitChangelistDialog2" timestamp="1580982699839">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="880" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1578802751491" />
-    <state x="248" y="128" key="DiffContextDialog" timestamp="1578802746534">
+    <state x="880" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1580982699839" />
+    <state x="248" y="128" width="2048" height="1146" key="DiffContextDialog" timestamp="1580982696487">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="248" y="128" key="DiffContextDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1578802746534" />
+    <state x="248" y="128" width="2048" height="1146" key="DiffContextDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580982696487" />
     <state x="1128" y="590" key="Github.ShareDialog" timestamp="1575715134960">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -140,10 +195,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1072" y="404" key="Github.UntrackedFilesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1575715138897" />
-    <state x="1072" y="411" key="RollbackChangesDialog" timestamp="1578755645713">
+    <state x="1072" y="411" key="RollbackChangesDialog" timestamp="1580982708435">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1072" y="411" key="RollbackChangesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1578755645713" />
+    <state x="1072" y="411" key="RollbackChangesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580982708435" />
     <state x="781" y="342" key="SettingsEditor" timestamp="1575714298385">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -156,13 +211,13 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="956" y="433" width="786" height="600" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1578812676410" />
-    <state x="978" y="491" key="git4idea.merge.GitPullDialog" timestamp="1578754965139">
+    <state x="978" y="491" key="git4idea.merge.GitPullDialog" timestamp="1580882664072">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="978" y="491" key="git4idea.merge.GitPullDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1578754965139" />
-    <state x="936" y="353" width="670" height="676" key="search.everywhere.popup" timestamp="1578812664445">
+    <state x="978" y="491" key="git4idea.merge.GitPullDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580882664072" />
+    <state x="936" y="353" width="672" height="676" key="search.everywhere.popup" timestamp="1580980172440">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="936" y="353" width="670" height="676" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1578812664445" />
+    <state x="936" y="353" width="672" height="676" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1580980172440" />
   </component>
 </project>

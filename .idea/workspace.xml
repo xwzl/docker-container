@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffaf66d0-a80e-4365-a0a1-452af018410f" name="Default Changelist" comment="logstash 完结">
-      <change afterPath="$PROJECT_DIR$/filebeats/demo.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logstash/logstash-spring.conf" afterDir="false" />
+    <list default="true" id="ffaf66d0-a80e-4365-a0a1-452af018410f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/home/elk/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/es-master.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/es-slave1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/es-slave2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/filebeat.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/init.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/kibana.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/logstash-filebeat.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/logstash-spring.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/my.cnf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/nacos.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/nacos.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/elk/nginx.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +60,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/logstash" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/elk" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -61,15 +72,16 @@
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\root\docker-container\logstash" />
-      <recent name="D:\root\docker-container\home\single" />
-      <recent name="D:\root\docker-contanier" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\root\docker-container\logstash" />
       <recent name="D:\root\docker-container\home" />
       <recent name="D:\root\docker-container" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\root\docker-container\home\elk" />
+      <recent name="D:\root\docker-container\logstash" />
+      <recent name="D:\root\docker-container\home\single" />
+      <recent name="D:\root\docker-contanier" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -108,7 +120,7 @@
       <workItem from="1580956352210" duration="1782000" />
       <workItem from="1580959566123" duration="1426000" />
       <workItem from="1580962293006" duration="12092000" />
-      <workItem from="1581076962322" duration="1817000" />
+      <workItem from="1581076962322" duration="3949000" />
     </task>
     <task id="LOCAL-00001" summary="重启">
       <created>1578802752359</created>
@@ -117,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578802752359</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="logstash 完结">
+      <created>1581078867678</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1581078867678</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +180,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="重启" />
-    <option name="LAST_COMMIT_MESSAGE" value="重启" />
+    <MESSAGE value="logstash 完结" />
+    <option name="LAST_COMMIT_MESSAGE" value="logstash 完结" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1512" y="358" key="#Project_Structure" timestamp="1575713644659">
@@ -172,10 +192,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580982716423" />
-    <state x="880" y="293" key="CommitChangelistDialog2" timestamp="1580982699839">
+    <state x="880" y="293" key="CommitChangelistDialog2" timestamp="1581078867188">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="880" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1580982699839" />
+    <state x="880" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1581078867188" />
     <state x="248" y="128" width="2048" height="1146" key="DiffContextDialog" timestamp="1580982696487">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -196,10 +216,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="342" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1575714298385" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1581078859697">
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1581078871646">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1581078859697" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1581078871646" />
     <state x="956" y="433" width="786" height="600" key="find.popup" timestamp="1578812676410">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

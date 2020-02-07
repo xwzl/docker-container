@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffaf66d0-a80e-4365-a0a1-452af018410f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/logstash/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logstash/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logstash/logstash-filebeat.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logstash/logstash-filter-date.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logstash/logstash-filter-grok.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logstash/logstash-multiline-code.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logstash/logstash-multiline-timestamp.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logstash/logstash-multiline.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logstash/logstash-stdin.conf" afterDir="false" />
+    <list default="true" id="ffaf66d0-a80e-4365-a0a1-452af018410f" name="Default Changelist" comment="logstash 完结">
+      <change afterPath="$PROJECT_DIR$/filebeats/demo.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logstash/logstash-spring.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodes-cluster/node1-master/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodes-cluster/node1-master/init.sh" beforeDir="false" afterPath="$PROJECT_DIR$/nodes-cluster/node1-master/init.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodes-stand-alone/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/nodes-stand-alone/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodes-stand-alone/init.sh" beforeDir="false" afterPath="$PROJECT_DIR$/nodes-stand-alone/init.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +28,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/logstash/filter/logstash-apache-demo.conf" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1UeOXsOF804A2oL3v8Q8StdKG27" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -69,15 +61,15 @@
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\root\docker-container\logstash" />
-      <recent name="D:\root\docker-container\home" />
-      <recent name="D:\root\docker-container" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\root\docker-container\logstash" />
       <recent name="D:\root\docker-container\home\single" />
       <recent name="D:\root\docker-contanier" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\root\docker-container\logstash" />
+      <recent name="D:\root\docker-container\home" />
+      <recent name="D:\root\docker-container" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -116,6 +108,7 @@
       <workItem from="1580956352210" duration="1782000" />
       <workItem from="1580959566123" duration="1426000" />
       <workItem from="1580962293006" duration="12092000" />
+      <workItem from="1581076962322" duration="1817000" />
     </task>
     <task id="LOCAL-00001" summary="重启">
       <created>1578802752359</created>
@@ -203,10 +196,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="342" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1575714298385" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1578802759308">
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1581078859697">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1578802759308" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1581078859697" />
     <state x="956" y="433" width="786" height="600" key="find.popup" timestamp="1578812676410">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

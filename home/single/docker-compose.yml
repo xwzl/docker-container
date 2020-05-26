@@ -24,7 +24,7 @@ services:
   es-master:
     container_name: es-master
     hostname: es-master
-    image: elasticsearch:7.5.1
+    image: elasticsearch:7.7.0
     restart: always
     ports:
       - 9200:9200
@@ -37,7 +37,7 @@ services:
   kibana:
     container_name: kibana
     hostname: kibana
-    image: kibana:7.5.1
+    image: kibana:7.7.0
     restart: always
     ports:
       - 5601:5601
@@ -63,7 +63,7 @@ services:
     # 主机名称
     hostname: filebeat
     # 镜像
-    image: docker.elastic.co/beats/filebeat:7.5.1
+    image: docker.elastic.co/beats/filebeat:7.7.0
     # 重启机制
     restart: always
     # 配置文件无权限访问的问题
@@ -85,7 +85,7 @@ services:
   logstash:
     container_name: logstash
     hostname: logstash
-    image: logstash:7.5.1
+    image: logstash:7.7.0
     command: logstash -f ./conf/logstash-filebeat.conf
     restart: always
     volumes:

@@ -13,3 +13,9 @@ linux下执行shell脚本时报错：-bash: ./a.sh: /bin/bash^M: bad interpreter
 1. sed -i "s/\r//" <filename>或sed -i "s/^M//" <filename>，直接将回车符替换为空字符串。
 2. vim <filename>，编辑文件，执行“: set ff=unix”，将文件设置为unix格式，然后执行“:wq”，保存退出。
 3. dos2unix <filename>或busybox dos2unix <filename>，如果提示command not found，可以使用前两种方法。
+
+
+4. elk 启动注意防火墙的关闭
+
+    systemctl stop firewalld.service
+    systemctl restart docker  

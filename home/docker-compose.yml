@@ -54,7 +54,7 @@ services:
     volumes:
       - ./mysql/data:/var/lib/mysql
   #      - /opt/mysql/my.cnf:/etc/mysql/my.cnf 编排挂载 MySQL 配置有一点问题
-  #      - ./mysql/my.cnf:/etc/my.cnf 编排挂载 MySQL 配置有一点问题
+      - ./mysql/conf/my.cnf:/etc/mysql/my.cnf
   nacos-mysql:
     image: mysql:5.7.28
     restart: always

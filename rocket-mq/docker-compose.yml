@@ -69,7 +69,7 @@ services:
     container_name: rmqbroker-a-s
     hostname: rmqbroker-a-s
     ports:
-      - 10912:10911
+      - 10912:10912
     volumes:
       - ./rocketmq/logs/broker-a-s:/opt/logs
       - ./rocketmq/store/broker-a-s:/opt/store
@@ -92,7 +92,7 @@ services:
     container_name: rmqbroker-b
     hostname: rmqbroker-b
     ports:
-      - 10909:10909
+      - 10913:10913
     volumes:
       - ./rocketmq/logs/broker-b:/opt/logs
       - ./rocketmq/store/broker-b:/opt/store
@@ -118,7 +118,7 @@ services:
     container_name: rmqbroker-b-s
     hostname: rmqbroker-b-s
     ports:
-      - 10910:10909
+      - 10914:10914
     volumes:
       - ./rocketmq/logs/broker-b-s:/opt/logs
       - ./rocketmq/store/broker-b-s:/opt/store

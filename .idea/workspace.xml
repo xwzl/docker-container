@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffaf66d0-a80e-4365-a0a1-452af018410f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/home/elk/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/es-master.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/es-slave1.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/es-slave2.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/filebeat.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/init.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/kibana.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/logstash-filebeat.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/logstash-spring.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/my.cnf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/nacos.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/nacos.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/elk/nginx.conf" afterDir="false" />
+    <list default="true" id="ffaf66d0-a80e-4365-a0a1-452af018410f" name="Default Changelist" comment="mysql 配置文件双休啊">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rocket-mq/broker-a-s.conf" beforeDir="false" afterPath="$PROJECT_DIR$/rocket-mq/broker-a-s.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rocket-mq/broker-b-s.conf" beforeDir="false" afterPath="$PROJECT_DIR$/rocket-mq/broker-b-s.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rocket-mq/broker-b.conf" beforeDir="false" afterPath="$PROJECT_DIR$/rocket-mq/broker-b.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rocket-mq/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rocket-mq/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +21,7 @@
     <option name="PARALLEL_COMPILATION" value="true" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -48,19 +37,19 @@
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="false" />
     <property name="ToolWindowVersion Control.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/elk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/rocket-mq" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -72,17 +61,34 @@
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\root\docker-container\rocket-mq" />
+      <recent name="D:\root\docker-container\rocket-mq\4.4.0" />
+      <recent name="D:\root\docker-container\home\elk" />
+      <recent name="D:\root\docker-container\logstash" />
+      <recent name="D:\root\docker-container\home\single" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\root\docker-container\rocket-mq\4.4.0" />
       <recent name="D:\root\docker-container\logstash" />
       <recent name="D:\root\docker-container\home" />
       <recent name="D:\root\docker-container" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\root\docker-container\home\elk" />
-      <recent name="D:\root\docker-container\logstash" />
-      <recent name="D:\root\docker-container\home\single" />
-      <recent name="D:\root\docker-contanier" />
-    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -136,7 +142,21 @@
       <option name="project" value="LOCAL" />
       <updated>1581078867678</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="rocketMQ 集群配置">
+      <created>1608187213358</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608187213358</updated>
+    </task>
+    <task id="LOCAL-00004" summary="rocketmq 4.7.1 版本镜像构建">
+      <created>1608187286832</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608187286832</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,65 +192,13 @@
         </entry>
       </map>
     </option>
-    <option name="OPEN_TABS">
-      <set>
-        <option value="1" />
-      </set>
-    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="重启" />
     <MESSAGE value="logstash 完结" />
-    <option name="LAST_COMMIT_MESSAGE" value="logstash 完结" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1512" y="358" key="#Project_Structure" timestamp="1575713644659">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1512" y="358" key="#Project_Structure/0.0.2560.1400@0.0.2560.1400" timestamp="1575713644659" />
-    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1580982716423">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1034" y="390" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580982716423" />
-    <state x="880" y="293" key="CommitChangelistDialog2" timestamp="1581078867188">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="880" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1581078867188" />
-    <state x="248" y="128" width="2048" height="1146" key="DiffContextDialog" timestamp="1580982696487">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="248" y="128" width="2048" height="1146" key="DiffContextDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580982696487" />
-    <state x="1128" y="590" key="Github.ShareDialog" timestamp="1575715134960">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1128" y="590" key="Github.ShareDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1575715134960" />
-    <state x="1072" y="404" key="Github.UntrackedFilesDialog" timestamp="1575715138897">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1072" y="404" key="Github.UntrackedFilesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1575715138897" />
-    <state x="1072" y="411" key="RollbackChangesDialog" timestamp="1580982708435">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1072" y="411" key="RollbackChangesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580982708435" />
-    <state x="781" y="342" key="SettingsEditor" timestamp="1575714298385">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="781" y="342" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1575714298385" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1581078871646">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1581078871646" />
-    <state x="956" y="433" width="786" height="600" key="find.popup" timestamp="1578812676410">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="956" y="433" width="786" height="600" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1578812676410" />
-    <state x="978" y="491" key="git4idea.merge.GitPullDialog" timestamp="1580882664072">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="978" y="491" key="git4idea.merge.GitPullDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580882664072" />
-    <state x="936" y="353" width="672" height="676" key="search.everywhere.popup" timestamp="1580980172440">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="936" y="353" width="672" height="676" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1580980172440" />
+    <MESSAGE value="rocketMQ 集群配置" />
+    <MESSAGE value="rocketmq 4.7.1 版本镜像构建" />
+    <option name="LAST_COMMIT_MESSAGE" value="rocketmq 4.7.1 版本镜像构建" />
   </component>
 </project>

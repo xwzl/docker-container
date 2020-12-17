@@ -25,7 +25,7 @@ services:
     container_name: rmqnamesrv-b
     hostname: rmqnamesrv-b
     ports:
-      - 9877:9877
+      - 9877:9876
     volumes:
       - ./rocketmq/logs/nameserver-b:/opt/logs
       - ./rocketmq/store/nameserver-b:/opt/store
@@ -136,10 +136,13 @@ services:
     image: pangliang/rocketmq-console-ng
     container_name: rmqconsole
     hostname: rmqconsole
+    links:
+      - rmqnamesrv-a:rmqnamesrv-a
+      - rmqnamesrv-b:rmqnamesrv-b
     ports:
       - 9001:8080
     environment:
-      JAVA_OPTS: -Drocketmq.namesrv.addr=rmqnamesrv-a:9876;rmqnamesrv-b:9877 -Dcom.rocketmq.sendMessageWithVIPChannel=false
+      JAVA_OPTS: -Drocketmq.namesrv.addr=rmqnamesrv-a:9876;rmqnamesrv-b:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false
 #    networks:
 #      rmq:
 #        aliases:

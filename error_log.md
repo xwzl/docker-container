@@ -19,3 +19,9 @@ linux下执行shell脚本时报错：-bash: ./a.sh: /bin/bash^M: bad interpreter
 
     systemctl stop firewalld.service
     systemctl restart docker  
+
+5. docker-compose 用法
+
+       https://docs.docker.com/compose/install/
+       https://www.runoob.com/docker/docker-compose.html
+       https://docs.docker.com/compose/reference/overview/

@@ -30,11 +30,16 @@ services:
       - ./rocketmq/logs/nameserver-b:/opt/logs
       - ./rocketmq/store/nameserver-b:/opt/store
     command: sh mqnamesrv
-#    networks:
-#      rmq:
-#        aliases:
-#          - rmqnamesrv-b
-
+  rmqnamesrv-c:
+    image: foxiswho/rocketmq:4.7.0
+    container_name: rmqnamesrv-c
+    hostname: rmqnamesrv-c
+    ports:
+      - 9878:9876
+    volumes:
+      - ./rocketmq/logs/nameserver-c:/opt/logs
+      - ./rocketmq/store/nameserver-c:/opt/store
+    command: sh mqnamesrv
   rmqbroker-a:
 #    build:
 #      context: ./
@@ -52,11 +57,12 @@ services:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-a:9876"
       JAVA_OPTS: " -Duser.home=/opt"
-      JAVA_OPT_EXT: "-Xms512M -Xmx512M -Xmn128m"
+      JAVA_OPT_EXT: "-Xms128M -Xmx128M -Xmn128m"
     command: sh mqbroker -c /opt/rocketmq/conf/broker.conf autoCreateTopicEnable=true &
     links:
       - rmqnamesrv-a:rmqnamesrv-a
       - rmqnamesrv-b:rmqnamesrv-b
+      - rmqnamesrv-c:rmqnamesrv-c
 #    networks:
 #      rmq:
 #        aliases:
@@ -78,11 +84,12 @@ services:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-a:9876"
       JAVA_OPTS: " -Duser.home=/opt"
-      JAVA_OPT_EXT: "-Xms512M -Xmx512M -Xmn128m"
+      JAVA_OPT_EXT: "-Xms128M -Xmx128M -Xmn128m"
     command: sh mqbroker -c /opt/rocketmq/conf/broker.conf autoCreateTopicEnable=true &
     links:
       - rmqnamesrv-a:rmqnamesrv-a
       - rmqnamesrv-b:rmqnamesrv-b
+      - rmqnamesrv-c:rmqnamesrv-c
 
   rmqbroker-b:
 #    build:
@@ -101,11 +108,12 @@ services:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-b:9876"
       JAVA_OPTS: " -Duser.home=/opt"
-      JAVA_OPT_EXT: "-Xms512M -Xmx512M -Xmn128m"
+      JAVA_OPT_EXT: "-Xms128M -Xmx128M -Xmn128m"
     command: sh mqbroker -c /opt/rocketmq/conf/broker.conf autoCreateTopicEnable=true &
     links:
       - rmqnamesrv-a:rmqnamesrv-a
       - rmqnamesrv-b:rmqnamesrv-b
+      - rmqnamesrv-c:rmqnamesrv-c
 #    networks:
 #      rmq:
 #        aliases:
@@ -127,11 +135,12 @@ services:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-b:9876"
       JAVA_OPTS: " -Duser.home=/opt"
-      JAVA_OPT_EXT: "-Xms512M -Xmx512M -Xmn128m"
+      JAVA_OPT_EXT: "-Xms128M -Xmx128M -Xmn128m"
     command: sh mqbroker -c /opt/rocketmq/conf/broker.conf autoCreateTopicEnable=true &
     links:
       - rmqnamesrv-a:rmqnamesrv-a
       - rmqnamesrv-b:rmqnamesrv-b
+      - rmqnamesrv-c:rmqnamesrv-c
   rmqconsole:
     image: pangliang/rocketmq-console-ng
     container_name: rmqconsole
@@ -139,10 +148,11 @@ services:
     links:
       - rmqnamesrv-a:rmqnamesrv-a
       - rmqnamesrv-b:rmqnamesrv-b
+      - rmqnamesrv-c:rmqnamesrv-c
     ports:
       - 9001:8080
     environment:
-      JAVA_OPTS: -Drocketmq.namesrv.addr=rmqnamesrv-a:9876;rmqnamesrv-b:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false
+      JAVA_OPTS: -Drocketmq.namesrv.addr=rmqnamesrv-a:9876;rmqnamesrv-b:9876;rmqnamesrv-c:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false
 #    networks:
 #      rmq:
 #        aliases:

@@ -1,7 +1,9 @@
 mkdir -p ./rocketmq/logs/nameserver-a
 mkdir -p ./rocketmq/logs/nameserver-b
+mkdir -p ./rocketmq/logs/nameserver-c
 mkdir -p ./rocketmq/store/nameserver-a
 mkdir -p ./rocketmq/store/nameserver-b
+mkdir -p ./rocketmq/store/nameserver-c
 mkdir -p ./rocketmq/logs/broker-a
 mkdir -p ./rocketmq/logs/broker-a-s
 mkdir -p ./rocketmq/logs/broker-b

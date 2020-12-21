@@ -10,8 +10,8 @@ services:
     ports:
       - 9876:9876
     volumes:
-      - ./rocketmq/logs/nameserver-a:/opt/logs
-      - ./rocketmq/store/nameserver-a:/opt/store
+      - ./rocketmq/logs/nameserver-a:/home/rocketmq/logs
+      - ./rocketmq/store/nameserver-a:/home/rocketmq/store
     command: sh mqnamesrv
 #    networks:
 #      rmq:
@@ -27,8 +27,8 @@ services:
     ports:
       - 9877:9876
     volumes:
-      - ./rocketmq/logs/nameserver-b:/opt/logs
-      - ./rocketmq/store/nameserver-b:/opt/store
+      - ./rocketmq/logs/nameserver-b:/home/rocketmq/logs
+      - ./rocketmq/store/nameserver-b:/home/rocketmq/store
     command: sh mqnamesrv
   rmqnamesrv-c:
     image: foxiswho/rocketmq:4.7.0
@@ -37,8 +37,8 @@ services:
     ports:
       - 9878:9876
     volumes:
-      - ./rocketmq/logs/nameserver-c:/opt/logs
-      - ./rocketmq/store/nameserver-c:/opt/store
+      - ./rocketmq/logs/nameserver-c:/home/rocketmq/logs
+      - ./rocketmq/store/nameserver-c:/home/rocketmq/store
     command: sh mqnamesrv
   rmqbroker-a:
 #    build:
@@ -50,8 +50,8 @@ services:
     ports:
       - 10911:10911
     volumes:
-      - ./rocketmq/logs/broker-a:/opt/logs
-      - ./rocketmq/store/broker-a:/opt/store
+      - ./rocketmq/logs/broker-a:/home/rocketmq/logs
+      - ./rocketmq/store/broker-a:/home/rocketmq/store
       - ./broker-a.conf:/opt/rocketmq/conf/broker.conf
     environment:
       TZ: Asia/Shanghai
@@ -77,8 +77,8 @@ services:
     ports:
       - 10912:10912
     volumes:
-      - ./rocketmq/logs/broker-a-s:/opt/logs
-      - ./rocketmq/store/broker-a-s:/opt/store
+      - ./rocketmq/logs/broker-a-s:/home/rocketmq/logs
+      - ./rocketmq/store/broker-a-s:/home/rocketmq/store
       - ./broker-a-s.conf:/opt/rocketmq/conf/broker.conf
     environment:
       TZ: Asia/Shanghai
@@ -101,8 +101,8 @@ services:
     ports:
       - 10913:10913
     volumes:
-      - ./rocketmq/logs/broker-b:/opt/logs
-      - ./rocketmq/store/broker-b:/opt/store
+      - ./rocketmq/logs/broker-b:/home/rocketmq/logs
+      - ./rocketmq/store/broker-b:/home/rocketmq/store
       - ./broker-b.conf:/opt/rocketmq/conf/broker.conf
     environment:
       TZ: Asia/Shanghai
@@ -128,8 +128,8 @@ services:
     ports:
       - 10914:10914
     volumes:
-      - ./rocketmq/logs/broker-b-s:/opt/logs
-      - ./rocketmq/store/broker-b-s:/opt/store
+      - ./rocketmq/logs/broker-b-s:/home/rocketmq/logs
+      - ./rocketmq/store/broker-b-s:/home/rocketmq/store
       - ./broker-b-s.conf:/opt/rocketmq/conf/broker.conf
     environment:
       TZ: Asia/Shanghai

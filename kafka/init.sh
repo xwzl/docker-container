@@ -6,3 +6,5 @@ rm -rf data
 for i in {1..3}; do
   mkdir -p $(pwd)/data/kafka${i} && chmod -R 777 $(pwd)/data/kafka${i}
 done
+
+chmod -R 777 ./data

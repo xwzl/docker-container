@@ -1,48 +1,32 @@
+#指定基础镜像
 FROM centos:7
 
-# 维护者信息，已经被废弃
-#MAINTAINER "xuweizhi 62424423@qq.com"
-# MAINTAINER 迁移到 LABEL
-LABEL maintainer="xuweizhi 62424423@qq.com"
+#镜像作者
+MAINTAINER lupf "365246375@qq.com"
 
-# 环境变量
-ENV REDIS_HOME="/usr/local/redis" REDIS_VERSION="6.0.7" BASE_DIR="/root/base"
+#设置时区
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-# 重网络下载文件并且接下
-ADD https://xuweizhialiyunoss.oss-cn-beijing.aliyuncs.com/docker/redis-6.0.9.tar.gz /usr/local
-#ADD https://download.redis.io/releases/redis-6.0.9.tar.gz /usr/local
+#定义路径的环境变量
+ENV REDIS_HOME /usr/local
 
-RUN cd /usr/local && tar -vxzf ./redis-6.0.9.tar.gz && mv ./redis-6.0.9 ./redis
-RUN cd $REDIS_HOME && ls -al
+#安装YUM源
+RUN yum -y update && yum -y install epel-release && yum -y install redis
 
-#COPY ./redis $REDIS_HOME
-#COPY ./redis-install.sh $REDIS_HOME
-#RUN ls -al $REDIS_HOME
-#RUN sh $REDIS_HOME/redis-install.sh
+#安装清理缓存文件
+RUN yum clean all
 
-RUN chmod -R 777 $REDIS_HOME
-#RUN yum install -y gcc gcc-c++ make openssl openssl-devel
+#修改绑定IP地址
+RUN sed -i -e 's@bind 127.0.0.1@bind 0.0.0.0@g' /etc/redis.conf
 
-#RUN yum -y update
-RUN yum install -y gcc make
+#关闭保护模式
+RUN sed -i -e 's@protected-mode yes@protected-mode no@g' /etc/redis.conf
 
-RUN yum -y install centos-release-scl
-RUN yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils
-RUN scl enable devtoolset-9 bash
-RUN echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
-RUN source ~/bash
-RUN gcc -v
-#RUN echo "source /opt/rh/devtoolset-9/enable" >>/etc/profile
+#设置密码
+RUN echo "requirepass 6jXL95Iv2BFisJNB" >> /etc/redis.conf
 
-WORKDIR /usr/local/redis
-RUN make && make PREFIX=/usr/local/redis install
-RUN mkdir -p /usr/local/redis/conf/
-RUN cp /usr/local/redis/redis.conf  /usr/local/redis/conf/
-RUN sed -i  '68s/127.0.0.1/0.0.0.0/' /usr/local/redis/redis.conf
-RUN sed -i  '87s/protected-mode yes/protected-mode no/' /usr/local/redis/redis.conf
+#设置端口
+EXPOSE 6379
 
-# ./ 相对于最近的一个 WORKDIR 路径，下面的 ./src == /usr/local/src/
-#WORKDIR ${REDIS_HOME}
-EXPOSE 6379/tcp
-
-ENTRYPOINT ["$REDIS_HOME/src/redis-server","$REDIS_HOME/redis.conf"]
+#启动
+ENTRYPOINT [ "/usr/bin/redis-server","/etc/redis.conf"]

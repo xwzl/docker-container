@@ -78,6 +78,12 @@ mongo --port 4000
 #sh.shardCollection("库名.集合名",{_id: "hashed"});
 #sh.shardCollection("order.account",{_id: "hashed"});
 
+#db.adminCommand("flushRouterConfig")// 刷新路由
+#sh.enableBalancing("mongodbDemo.um_t_staff")// 让当前分片支持平衡
+#sh.startBalancer() // 开启平衡
+#sh.status({"verbose":1})// 查看详细分片信息
+#db.um_t_staff.getShardDistribution()// 查看该表分片数据信息
+
 # 动态扩容
 mongod --bind_ip 0.0.0.0 --replSet shard2 --dbpath ./data/shard2 --logpath ./data/shard2/mongod.log --port 27013   --fork   --shardsvr
 mongod --bind_ip 0.0.0.0 --replSet shard2 --dbpath ./data/shard2second1  --logpath ./data/shard2second1/mongod.log --port 27014   --fork   --shardsvr
@@ -96,5 +102,5 @@ mongod --bind_ip 0.0.0.0 --replSet shard2 --dbpath ./data/shard2second2 --logpat
 #sh.addShard("shard2/192.168.208.128:27013,192.168.208.128:27014,192.168.208.128:27015");
 
 #for( var i =0;i<100; i++){
-#  db.test.insert({i:i});
+#  db.account.insert({i:i});
 #}

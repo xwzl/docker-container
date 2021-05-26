@@ -1,10 +1,10 @@
 version: '3.5'
 services:
   rmqnamesrv-a:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    #    build:
+    #      context: ./
+    #      dockerfile: Dockerfile
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqnamesrv-a
     hostname: rmqnamesrv-a
     ports:
@@ -13,134 +13,151 @@ services:
       - ./rocketmq/logs/nameserver-a:/home/rocketmq/logs
       - ./rocketmq/store/nameserver-a:/home/rocketmq/store
     command: sh mqnamesrv
-#    networks:
-#      rmq:
-#        aliases:
-#          - rmqnamesrv-a
+    environment:
+      TZ: Asia/Shanghai
+    networks:
+      rmq:
+        aliases:
+          - rmqnamesrv-a
   rmqnamesrv-b:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    #    build:
+    #      context: ./
+    #      dockerfile: Dockerfile
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqnamesrv-b
     hostname: rmqnamesrv-b
+    environment:
+      TZ: Asia/Shanghai
     ports:
       - 9877:9876
     volumes:
       - ./rocketmq/logs/nameserver-b:/home/rocketmq/logs
       - ./rocketmq/store/nameserver-b:/home/rocketmq/store
     command: sh mqnamesrv
+    networks:
+      rmq:
+        aliases:
+          - rmqnamesrv-b
   rmqnamesrv-c:
-    image: foxiswho/rocketmq:4.7.0
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqnamesrv-c
     hostname: rmqnamesrv-c
+    environment:
+      TZ: Asia/Shanghai
     ports:
       - 9878:9876
     volumes:
       - ./rocketmq/logs/nameserver-c:/home/rocketmq/logs
       - ./rocketmq/store/nameserver-c:/home/rocketmq/store
     command: sh mqnamesrv
+    networks:
+      rmq:
+        aliases:
+          - rmqnamesrv-c
   rmqbroker-a:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqbroker-a
     hostname: rmqbroker-a
     ports:
+      - 10909:10909
       - 10911:10911
     volumes:
       - ./rocketmq/logs/broker-a:/home/rocketmq/logs
       - ./rocketmq/store/broker-a:/home/rocketmq/store
-      - ./broker-a.conf:/opt/rocketmq/conf/broker.conf
+      - ./broker-a.conf:/etc/rocketmq/broker.conf
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-a:9876"
       JAVA_OPTS: " -Duser.home=/opt"
       JAVA_OPT_EXT: "-Xms128M -Xmx128M -Xmn128m"
-    command: sh mqbroker -c /opt/rocketmq/conf/broker.conf autoCreateTopicEnable=true &
+    command: sh mqbroker -c /etc/rocketmq/broker.conf rmqnamesrv-a:9876 autoCreateTopicEnable=true &
     links:
       - rmqnamesrv-a:rmqnamesrv-a
       - rmqnamesrv-b:rmqnamesrv-b
       - rmqnamesrv-c:rmqnamesrv-c
-#    networks:
-#      rmq:
-#        aliases:
-#          - rmqbroker-a
+    networks:
+      rmq:
+        aliases:
+          - rmqbroker-a
   rmqbroker-a-s:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    #    build:
+    #      context: ./
+    #      dockerfile: Dockerfile
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqbroker-a-s
     hostname: rmqbroker-a-s
     ports:
+      - 10919:10909
       - 10912:10912
     volumes:
       - ./rocketmq/logs/broker-a-s:/home/rocketmq/logs
       - ./rocketmq/store/broker-a-s:/home/rocketmq/store
-      - ./broker-a-s.conf:/opt/rocketmq/conf/broker.conf
+      - ./broker-a-s.conf:/etc/rocketmq/broker.conf
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-a:9876"
       JAVA_OPTS: " -Duser.home=/opt"
       JAVA_OPT_EXT: "-Xms128M -Xmx128M -Xmn128m"
-    command: sh mqbroker -c /opt/rocketmq/conf/broker.conf autoCreateTopicEnable=true &
+    command: sh mqbroker -c /etc/rocketmq/broker.conf rmqnamesrv-a:9876 autoCreateTopicEnable=true &
     links:
       - rmqnamesrv-a:rmqnamesrv-a
       - rmqnamesrv-b:rmqnamesrv-b
       - rmqnamesrv-c:rmqnamesrv-c
+    networks:
+      rmq:
+        aliases:
+          - rmqbroker-a-s
 
   rmqbroker-b:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqbroker-b
     hostname: rmqbroker-b
     ports:
+      - 10929:10909
       - 10913:10913
     volumes:
       - ./rocketmq/logs/broker-b:/home/rocketmq/logs
       - ./rocketmq/store/broker-b:/home/rocketmq/store
-      - ./broker-b.conf:/opt/rocketmq/conf/broker.conf
+      - ./broker-b.conf:/etc/rocketmq/broker.conf
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-b:9876"
       JAVA_OPTS: " -Duser.home=/opt"
       JAVA_OPT_EXT: "-Xms128M -Xmx128M -Xmn128m"
-    command: sh mqbroker -c /opt/rocketmq/conf/broker.conf autoCreateTopicEnable=true &
+    command: sh mqbroker -c /etc/rocketmq/broker.conf rmqnamesrv-a:9876 autoCreateTopicEnable=true &
     links:
       - rmqnamesrv-a:rmqnamesrv-a
       - rmqnamesrv-b:rmqnamesrv-b
       - rmqnamesrv-c:rmqnamesrv-c
-#    networks:
-#      rmq:
-#        aliases:
-#          - rmqbroker-b
+    networks:
+      rmq:
+        aliases:
+          - rmqbroker-b
   rmqbroker-b-s:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqbroker-b-s
     hostname: rmqbroker-b-s
     ports:
+      - 10939:10909
       - 10914:10914
     volumes:
       - ./rocketmq/logs/broker-b-s:/home/rocketmq/logs
       - ./rocketmq/store/broker-b-s:/home/rocketmq/store
-      - ./broker-b-s.conf:/opt/rocketmq/conf/broker.conf
+      - ./broker-b-s.conf:/etc/rocketmq/broker.conf
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-b:9876"
       JAVA_OPTS: " -Duser.home=/opt"
       JAVA_OPT_EXT: "-Xms128M -Xmx128M -Xmn128m"
-    command: sh mqbroker -c /opt/rocketmq/conf/broker.conf autoCreateTopicEnable=true &
+    command: sh mqbroker -c /etc/rocketmq/broker.conf rmqnamesrv-a:9876 autoCreateTopicEnable=true &
     links:
       - rmqnamesrv-a:rmqnamesrv-a
       - rmqnamesrv-b:rmqnamesrv-b
       - rmqnamesrv-c:rmqnamesrv-c
+    networks:
+      rmq:
+        aliases:
+          - rmqbroker-b-s
   rmqconsole:
     image: pangliang/rocketmq-console-ng
     container_name: rmqconsole
@@ -152,12 +169,13 @@ services:
     ports:
       - 9001:8080
     environment:
-      JAVA_OPTS: -Drocketmq.namesrv.addr=rmqnamesrv-a:9876;rmqnamesrv-b:9876;rmqnamesrv-c:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false
-#    networks:
-#      rmq:
-#        aliases:
-#          - rmqconsole
-#networks:
-#  rmq:
-#    name: rmq
-#    driver: bridge
+      TZ: Asia/Shanghai
+      JAVA_OPTS: -Drocketmq.namesrv.addr=192.168.208.128:9876;192.168.208.128:9877;192.168.208.128:9878; -Dcom.rocketmq.sendMessageWithVIPChannel=false
+    networks:
+      rmq:
+        aliases:
+          - rmqconsole
+networks:
+  rmq:
+    name: rmq
+    driver: bridge

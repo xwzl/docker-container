@@ -4,7 +4,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqnamesrv-a
     hostname: rmqnamesrv-a
     ports:
@@ -21,7 +21,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqnamesrv-b
     hostname: rmqnamesrv-b
     ports:
@@ -31,7 +31,7 @@ services:
       - ./rocketmq/store/nameserver-b:/home/rocketmq/store
     command: sh mqnamesrv
   rmqnamesrv-c:
-    image: foxiswho/rocketmq:4.7.0
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqnamesrv-c
     hostname: rmqnamesrv-c
     ports:
@@ -44,7 +44,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqbroker-a
     hostname: rmqbroker-a
     ports:
@@ -71,7 +71,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqbroker-a-s
     hostname: rmqbroker-a-s
     ports:
@@ -95,7 +95,7 @@ services:
 #    build:
 #      context: .
 #      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqbroker-b
     hostname: rmqbroker-b
     ports:
@@ -122,7 +122,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: foxiswho/rocketmq:4.7.0
+    image: foxiswho/rocketmq:4.8.0
     container_name: rmqbroker-b-s
     hostname: rmqbroker-b-s
     ports:

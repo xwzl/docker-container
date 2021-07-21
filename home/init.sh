@@ -16,9 +16,9 @@ echo -e "${BLUE_COLOR}# ########################################################
 # 创建目录
 echo -e "${BLUE_COLOR}---> create [elasticsearch]directory start.${RES}"
 if [ ! -d "./elasticsearch/" ]; then
-mkdir -p ./elasticsearch/master/conf ./elasticsearch/master/data ./elasticsearch/master/logs \
-    ./elasticsearch/slave1/conf ./elasticsearch/slave1/data ./elasticsearch/slave1/logs \
-    ./elasticsearch/slave2/conf ./elasticsearch/slave2/data ./elasticsearch/slave2/logs
+mkdir -p ./elasticsearch/master/conf ./elasticsearch/master/data ./elasticsearch/master/logs ./elasticsearch/master/plugins \
+    ./elasticsearch/slave1/conf ./elasticsearch/slave1/data ./elasticsearch/slave1/logs ./elasticsearch/slave1/plugins\
+    ./elasticsearch/slave2/conf ./elasticsearch/slave2/data ./elasticsearch/slave2/logs ./elasticsearch/slave2/plugins
 fi
 
 echo -e "${RED_COLOR}---> create [kibana]directory start.${RES}"
@@ -76,6 +76,12 @@ if [ -f "./es-master.yml" ] && [ -f "./es-slave1.yml" ] && [ -f "./es-slave2.yml
 mv ./es-master.yml ./elasticsearch/master/conf
 mv ./es-slave1.yml ./elasticsearch/slave1/conf
 mv ./es-slave2.yml ./elasticsearch/slave2/conf
+cp ./elastic-certificates.p12 ./elasticsearch/master
+cp ./elastic-certificates.p12 ./elasticsearch/slave1
+cp ./elastic-certificates.p12 ./elasticsearch/slave2
+cp -r ./ik ./elasticsearch/master/plugins
+cp -r ./ik ./elasticsearch/slave1/plugins
+cp -r ./ik ./elasticsearch/slave2/plugins
 fi
 
 echo -e "${RED_COLOR}---> move [kibana]config file start.${RES}"
@@ -91,7 +97,6 @@ fi
 echo -e "${GREEN_COLOR}---> move [filebeat]config file start.${RES}"
 if [ -f "./filebeat.yml" ]; then
 mv ./filebeat.yml ./filebeat/conf
-mv ./fields.yml ./filebeat/conf
 fi
 
 echo -e "${VIOLET_COLOR}---> move [nginx]config file start.${RES}"

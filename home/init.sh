@@ -43,7 +43,7 @@ fi
 
 echo -e "${GREEN_COLOR}---> create [mysql]directory start.${RES}"
 if [ ! -d "./mysql/"  ]; then
-mkdir -p ./mysql/conf/ ./mysql/data/ ./mysql/nacos/ ./mysql/init/
+mkdir -p ./mysql/conf/ ./mysql/data/  ./mysql/init/
 fi
 
 echo -e "${GREEN_COLOR}---> create [nacos]directory start.${RES}"

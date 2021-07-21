@@ -56,11 +56,11 @@ services:
     image: nacos/nacos-server:2.0.2
     container_name: nacos
     env_file:
-      - ./nacos/config/nacos.env
+      - ./nacos/conf/nacos.env
     links:
       - mysql:mysql
     volumes:
-      - ./nacos/config/nacos.properties:/home/nacos/init.d/custom.properties
+      - ./nacos/conf/nacos.properties:/home/nacos/init.d/custom.properties
     #      - ./standalone-logs/:/home/nacos/logs
     ports:
       - "8848:8848"

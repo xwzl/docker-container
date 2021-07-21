@@ -48,3 +48,29 @@
     启用配置：
     
     sysctl -p
+
+
+## 打开Window 10 的CMD
+
+执行以下命令：
+
+    wsl -d docker-desktop
+    echo 262144 >> /proc/sys/vm/max_map_count
+
+通过这个方法，即使操作系统重启，参数仍然有效。
+
+# x-pack
+
+进入 elasticsearch 容器
+
+    # 随机生成密码
+    ./bin/elasticsearch-setup-passwords auto
+    
+    # 生成指定指定密码
+    ./bin/elasticsearch-setup-passwords interactive
+
+# es-header 
+
+启动后访问 password 和密码指定
+ 
+    http://localhost:9100/?auth_user=elastic&auth_password=elastic

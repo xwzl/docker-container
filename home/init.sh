@@ -92,6 +92,7 @@ fi
 echo -e "${GREEN_COLOR}---> move [logstash]config file start.${RES}"
 if [ -f "./logstash-filebeat.conf" ]; then
 mv ./logstash-filebeat.conf ./logstash/conf
+mv ./logstash.conf ./logstash/conf
 fi
 
 echo -e "${GREEN_COLOR}---> move [filebeat]config file start.${RES}"

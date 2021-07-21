@@ -104,7 +104,7 @@ http.cors.allow-origin: "*"
 
 # 安全认证
 #xpack.security.enabled: false
-#http.cors.allow-headers: "Authorization"
+http.cors.allow-headers: "Authorization"
 
 xpack.security.enabled: true
 #xpack.security.enabled: true

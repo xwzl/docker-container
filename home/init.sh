@@ -65,7 +65,7 @@ chmod 777 ./filebeat/data/ ./filebeat/logs/
 fi
 
 if [ -d "./mysql/" ]; then
-chmod 777 ./mysql/data/ ./mysql/nacos/
+chmod 777 ./mysql/data/ ./mysql/init/
 fi
 
 echo -e "${BLUE_COLOR}===> directory authorize success.${RES}"
@@ -112,8 +112,9 @@ fi
 
 echo -e "${VIOLET_COLOR}---> move [nacos]config file start.${RES}"
 if [ -f "./nacos.properties" ]; then
-mv ./nacos.properties ./nacos/conf
+mv ./nacos.properties ./nacos/conf/
 mv ./nacos.sql ./mysql/init/
+mv ./nacos.env ./nacos/conf/
 fi
 
 echo -e "${BLUE_COLOR}===> move config files success.${RES}"

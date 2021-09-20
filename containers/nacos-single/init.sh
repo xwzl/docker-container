@@ -21,9 +21,9 @@ mkdir -p ./mysql/config ./mysql/data ./mysql/init
 fi
 
 echo -e "${RED_COLOR}---> create [nacos]directory start.${RES}"
-if [ ! -d "./nacos/" ]; then
-mkdir -p ./nacos/cluster-logs/nacos1 ./nacos/cluster-logs/nacos2 ./nacos/cluster-logs/nacos3 \
-         ./nacos/init.d/  ./nacos/env/
+echo -e "${GREEN_COLOR}---> create [nacos]directory start.${RES}"
+if [ ! -d "./nacos/"  ]; then
+mkdir -p ./nacos/conf/
 fi
 
 echo -e "${RED_COLOR}---> create [seata]directory start.${RES}"
@@ -46,10 +46,11 @@ fi
 
 chmod 777 -R ./mysql/data
 
-echo -e "${RED_COLOR}---> move [nacos]config file start.${RES}"
-if [ -f "./custom.properties" ]; then
-mv ./nacos-hostname.env ./nacos/env/nacos-hostname.env
-mv ./custom.properties ./nacos/init.d/
+echo -e "${VIOLET_COLOR}---> move [nacos]config file start.${RES}"
+if [ -f "./nacos.properties" ]; then
+mv ./nacos.properties ./nacos/conf/
+mv ./nacos.sql ./mysql/init/
+mv ./nacos.env ./nacos/conf/
 fi
 
 

@@ -1,0 +1,57 @@
+version: "3"
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    hostname: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      TZ: Asia/Shanghai
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+      --max_allowed_packet=128M;
+    volumes:
+      # mysql的数据文件
+      - ./mysql/data:/var/lib/mysql
+      # mysql配置文件
+#      - ./mysql/config:/etc/mysql/conf.d
+      - ./mysql/init:/docker-entrypoint-initdb.d/
+    ports:
+      - "3306:3306"
+  nacos:
+    image: nacos/nacos-server:2.0.2
+    container_name: nacos
+    env_file:
+      - ./nacos/conf/nacos.env
+    links:
+      - mysql:mysql
+    volumes:
+      - ./nacos/conf/nacos.properties:/home/nacos/init.d/custom.properties
+    #      - ./standalone-logs/:/home/nacos/logs
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+      - "9555:9555"
+    depends_on:
+      - mysql
+    restart: always
+  seata-server:
+    image: seataio/seata-server
+    hostname: seata-server
+    container_name: seata-server3
+    privileged: true
+    restart: always
+    ports:
+      - "8093:8091"
+    volumes:
+      - ./seata/conf/application.yml:/seata-server/resources/application.yml
+    links:
+      - nacos
+      - mysql
+    depends_on:
+      - mysql

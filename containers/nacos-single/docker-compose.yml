@@ -47,6 +47,7 @@ services:
     privileged: true
     restart: always
     environment:
+      # spring-cloud 无法访问容器中的 ip,配置外网映射地址
       SEATA_IP: 192.168.1.10
     ports:
       - 8091:8091

@@ -80,7 +80,11 @@ services:
     privileged: true
     restart: always
     ports:
-      - "8091:8091"
+      - 8091:8091
+    environment:
+      # spring-cloud 无法访问容器中的 ip,配置外网映射地址
+      SEATA_IP: 192.168.1.10
+      SEATA_PORT: 8091
     volumes:
       - ./seata/conf/application.yml:/seata-server/resources/application.yml
     links:
@@ -100,7 +104,11 @@ services:
     privileged: true
     restart: always
     ports:
-      - "8092:8091"
+      - 8092:8092
+    environment:
+      # spring-cloud 无法访问容器中的 ip,配置外网映射地址
+      SEATA_IP: 192.168.1.10
+      SEATA_PORT: 8092
     volumes:
       - ./seata/conf/application.yml:/seata-server/resources/application.yml
     links:
@@ -119,8 +127,12 @@ services:
     container_name: seata-server3
     privileged: true
     restart: always
+    environment:
+      # spring-cloud 无法访问容器中的 ip,配置外网映射地址
+      SEATA_IP: 192.168.1.10
+      SEATA_PORT: 8093
     ports:
-      - "8093:8091"
+      - 8093:8093
     volumes:
       - ./seata/conf/application.yml:/seata-server/resources/application.yml
     links:

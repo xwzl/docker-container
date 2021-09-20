@@ -24,7 +24,7 @@ services:
     ports:
       - "3306:3306"
   nacos:
-    image: nacos/nacos-server:2.0.2
+    image: nacos/nacos-server
     container_name: nacos
     env_file:
       - ./nacos/conf/nacos.env
@@ -43,11 +43,13 @@ services:
   seata-server:
     image: seataio/seata-server
     hostname: seata-server
-    container_name: seata-server3
+    container_name: seata-server
     privileged: true
     restart: always
+    environment:
+      SEATA_IP: 192.168.1.10
     ports:
-      - "8093:8091"
+      - 8091:8091
     volumes:
       - ./seata/conf/application.yml:/seata-server/resources/application.yml
     links:

@@ -26,6 +26,12 @@ mkdir -p ./nacos/cluster-logs/nacos1 ./nacos/cluster-logs/nacos2 ./nacos/cluster
          ./nacos/init.d/  ./nacos/env/
 fi
 
+echo -e "${RED_COLOR}---> create [seata]directory start.${RES}"
+
+if [ ! -d "./GREEN_COLOR/" ]; then
+mkdir -p ./seta/conf/
+fi
+
 
 echo -e "${BLUE_COLOR}===> directory authorize success.${RES}"
 
@@ -43,6 +49,13 @@ mv ./nacos-hostname.env ./nacos/env/nacos-hostname.env
 mv ./custom.properties ./nacos/init.d/
 fi
 
+
+echo -e "${RED_COLOR}---> move [seata]config file start.${RES}"
+if [ -f "./custom.properties" ]; then
+mv ./register.conf ./seata.conf.register.conf
+mv ./registry.properties ./registry.properties
+mv ./application.yml ./application.yml
+fi
 
 echo -e "${BLUE_COLOR}===> move config files success.${RES}"
 

@@ -73,3 +73,60 @@ services:
     restart: always
     depends_on:
       - mysql
+  seata-server1:
+    image: seataio/seata-server
+    hostname: seata-server1
+    container_name: seata-server1
+    privileged: true
+    restart: always
+    ports:
+      - "8091:8091"
+    volumes:
+      - ./seata/conf/application.yml:/seata-server/resources/application.yml
+    links:
+      - nacos1
+      - nacos2
+      - nacos3
+      - mysql
+    depends_on:
+      - nacos1
+      - nacos2
+      - nacos3
+  seata-server2:
+    image: seataio/seata-server
+    hostname: seata-server2
+    container_name: seata-server2
+    privileged: true
+    restart: always
+    ports:
+      - "8091:8091"
+    volumes:
+      - ./seata/conf/application.yml:/seata-server/resources/application.yml
+    links:
+      - nacos1
+      - nacos2
+      - nacos3
+      - mysql
+    depends_on:
+      - nacos1
+      - nacos2
+      - nacos3
+  seata-server3:
+    image: seataio/seata-server
+    hostname: seata-server3
+    container_name: seata-server3
+    privileged: true
+    restart: always
+    ports:
+      - "8091:8091"
+    volumes:
+      - ./seata/conf/application.yml:/seata-server/resources/application.yml
+    links:
+      - nacos1
+      - nacos2
+      - nacos3
+      - mysql
+    depends_on:
+      - nacos1
+      - nacos2
+      - nacos3

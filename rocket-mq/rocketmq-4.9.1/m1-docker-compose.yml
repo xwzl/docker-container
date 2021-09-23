@@ -4,7 +4,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/m1-rocketmq:4.9.1
     container_name: rmqnamesrv-a
     hostname: rmqnamesrv-a
     ports:
@@ -22,7 +22,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/m1-rocketmq:4.9.1
     container_name: rmqnamesrv-b
     hostname: rmqnamesrv-b
     ports:
@@ -33,7 +33,7 @@ services:
       - ./runserver.sh:/home/rocketmq/rocketmq-4.9.1/bin/runserver.sh
     command: sh mqnamesrv
   rmqnamesrv-c:
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/m1-rocketmq:4.9.1
     container_name: rmqnamesrv-c
     hostname: rmqnamesrv-c
     ports:
@@ -47,7 +47,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/m1-rocketmq:4.9.1
     container_name: rmqbroker-a
     hostname: rmqbroker-a
     ports:
@@ -75,7 +75,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/m1-rocketmq:4.9.1
     container_name: rmqbroker-a-s
     hostname: rmqbroker-a-s
     ports:
@@ -100,7 +100,7 @@ services:
 #    build:
 #      context: .
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/m1-rocketmq:4.9.1
     container_name: rmqbroker-b
     hostname: rmqbroker-b
     ports:
@@ -128,7 +128,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/m1-rocketmq:4.9.1
     container_name: rmqbroker-b-s
     hostname: rmqbroker-b-s
     ports:
@@ -149,7 +149,7 @@ services:
       - rmqnamesrv-b:rmqnamesrv-b
       - rmqnamesrv-c:rmqnamesrv-c
   rmqconsole:
-    image: apacherocketmq/rocketmq-dashboard
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/m1-rocketmq-dashboard
     container_name: rmqconsole
     hostname: rmqconsole
     links:

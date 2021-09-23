@@ -4,7 +4,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:4.9.1
     container_name: rmqnamesrv-a
     hostname: rmqnamesrv-a
     ports:
@@ -12,7 +12,7 @@ services:
     volumes:
       - ./rocketmq/logs/nameserver-a:/home/rocketmq/logs
       - ./rocketmq/store/nameserver-a:/home/rocketmq/store
-      - ./runserver.sh:/home/rocketmq/rocketmq-4.9.1/bin/runserver.sh
+#      - ./runserver.sh:/home/rocketmq/rocketmq-4.9.1/bin/runserver.sh
     command: sh mqnamesrv
 #    networks:
 #      rmq:
@@ -22,7 +22,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:4.9.1
     container_name: rmqnamesrv-b
     hostname: rmqnamesrv-b
     ports:
@@ -30,10 +30,10 @@ services:
     volumes:
       - ./rocketmq/logs/nameserver-b:/home/rocketmq/logs
       - ./rocketmq/store/nameserver-b:/home/rocketmq/store
-      - ./runserver.sh:/home/rocketmq/rocketmq-4.9.1/bin/runserver.sh
+#      - ./runserver.sh:/home/rocketmq/rocketmq-4.9.1/bin/runserver.sh
     command: sh mqnamesrv
   rmqnamesrv-c:
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:4.9.1
     container_name: rmqnamesrv-c
     hostname: rmqnamesrv-c
     ports:
@@ -41,13 +41,13 @@ services:
     volumes:
       - ./rocketmq/logs/nameserver-c:/home/rocketmq/logs
       - ./rocketmq/store/nameserver-c:/home/rocketmq/store
-      - ./runserver.sh:/home/rocketmq/rocketmq-4.9.1/bin/runserver.sh
+#      - ./runserver.sh:/home/rocketmq/rocketmq-4.9.1/bin/runserver.sh
     command: sh mqnamesrv
   rmqbroker-a:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:4.9.1
     container_name: rmqbroker-a
     hostname: rmqbroker-a
     ports:
@@ -56,7 +56,7 @@ services:
       - ./rocketmq/logs/broker-a:/home/rocketmq/logs
       - ./rocketmq/store/broker-a:/home/rocketmq/store
       - ./broker-a.conf:/home/rocketmq/conf/broker.conf
-      - ./runbroker.sh:/home/rocketmq/rocketmq-4.9.1/bin/runbroker.sh
+#      - ./runbroker.sh:/home/rocketmq/rocketmq-4.9.1/bin/runbroker.sh
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-a:9876"
@@ -75,7 +75,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:4.9.1
     container_name: rmqbroker-a-s
     hostname: rmqbroker-a-s
     ports:
@@ -84,7 +84,7 @@ services:
       - ./rocketmq/logs/broker-a-s:/home/rocketmq/logs
       - ./rocketmq/store/broker-a-s:/home/rocketmq/store
       - ./broker-a-s.conf:/home/rocketmq/conf/broker.conf
-      - ./runbroker.sh:/home/rocketmq/rocketmq-4.9.1/bin/runbroker.sh
+#      - ./runbroker.sh:/home/rocketmq/rocketmq-4.9.1/bin/runbroker.sh
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-a:9876"
@@ -100,7 +100,7 @@ services:
 #    build:
 #      context: .
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:4.9.1
     container_name: rmqbroker-b
     hostname: rmqbroker-b
     ports:
@@ -109,7 +109,7 @@ services:
       - ./rocketmq/logs/broker-b:/home/rocketmq/logs
       - ./rocketmq/store/broker-b:/home/rocketmq/store
       - ./broker-b.conf:/home/rocketmq/conf/broker.conf
-      - ./runbroker.sh:/home/rocketmq/rocketmq-4.9.1/bin/runbroker.sh
+#      - ./runbroker.sh:/home/rocketmq/rocketmq-4.9.1/bin/runbroker.sh
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-b:9876"
@@ -128,7 +128,7 @@ services:
 #    build:
 #      context: ./
 #      dockerfile: Dockerfile
-    image: apacherocketmq/rocketmq:4.9.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:4.9.1
     container_name: rmqbroker-b-s
     hostname: rmqbroker-b-s
     ports:
@@ -137,7 +137,7 @@ services:
       - ./rocketmq/logs/broker-b-s:/home/rocketmq/logs
       - ./rocketmq/store/broker-b-s:/home/rocketmq/store
       - ./broker-b-s.conf:/home/rocketmq/conf/broker.conf
-      - ./runbroker.sh:/home/rocketmq/rocketmq-4.9.1/bin/runbroker.sh
+#      - ./runbroker.sh:/home/rocketmq/rocketmq-4.9.1/bin/runbroker.sh
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-b:9876"
@@ -149,7 +149,7 @@ services:
       - rmqnamesrv-b:rmqnamesrv-b
       - rmqnamesrv-c:rmqnamesrv-c
   rmqconsole:
-    image: apacherocketmq/rocketmq-dashboard
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq-dashboard:1.0.1
     container_name: rmqconsole
     hostname: rmqconsole
     links:

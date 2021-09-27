@@ -44,7 +44,7 @@ mv ./my.cnf ./mysql/config
 mv ./nacos.sql ./mysql/init
 fi
 
-chmod 777 -R ./mysql/data
+chmod -R 777  ./mysql/data
 
 echo -e "${VIOLET_COLOR}---> move [nacos]config file start.${RES}"
 if [ -f "./nacos.properties" ]; then

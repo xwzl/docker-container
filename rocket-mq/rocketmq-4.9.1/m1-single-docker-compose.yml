@@ -1,0 +1,43 @@
+version: '3.5'
+services:
+  rmqnamesrv:
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/m1-rocketmq:4.9.1
+    container_name: rmqnamesrv
+    hostname: rmqnamesrv
+    ports:
+      - 9876:9876
+    volumes:
+      - ./rocketmq/logs/nameserver-a:/home/rocketmq/logs
+      - ./rocketmq/store/nameserver-a:/home/rocketmq/store
+      - ./runserver.sh:/home/rocketmq/rocketmq-4.9.1/bin/runserver.sh
+    command: sh mqnamesrv
+  rmqbroker:
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/m1-rocketmq:4.9.1
+    container_name: rmqbroker
+    hostname: rmqbroker
+    ports:
+      - 10910:10910
+    volumes:
+      - ./rocketmq/logs/broker-a:/home/rocketmq/logs
+      - ./rocketmq/store/broker-a:/home/rocketmq/store
+      - ./broker.conf:/home/rocketmq/conf/broker.conf
+      - ./runbroker.sh:/home/rocketmq/rocketmq-4.9.1/bin/runbroker.sh
+    environment:
+      TZ: Asia/Shanghai
+      NAMESRV_ADDR: "rmqnamesrv:9876"
+      JAVA_OPTS: " -Duser.home=/opt"
+      JAVA_OPT_EXT: "-Xms512M -Xmx512M -Xmn512m"
+    command: "sh mqbroker -c /home/rocketmq/conf/broker.conf autoCreateTopicEnable=true &"
+    links:
+      - rmqnamesrv:rmqnamesrv
+  rmqconsole:
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/m1-rocketmq-dashboard
+    container_name: rmqconsole
+    hostname: rmqconsole
+    links:
+      - rmqnamesrv:rmqnamesrv
+      - rmqbroker:rmqbroker
+    ports:
+      - 8081:8080
+    environment:
+      JAVA_OPTS: -Drocketmq.namesrv.addr=rmqnamesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false

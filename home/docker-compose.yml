@@ -89,7 +89,7 @@ services:
   es-master:
     container_name: es-master
     hostname: es-master
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:${elasticsearch_version}
     restart: always
     ports:
       - 9200:9200
@@ -101,11 +101,11 @@ services:
       - ./elasticsearch/master/elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
       - ./elasticsearch/master/plugins:/usr/share/elasticsearch/plugins
     environment:
-      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+      - ES_JAVA_OPTS
 
   es-slave1:
     container_name: es-slave1
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:${elasticsearch_version}
     restart: always
     ports:
       - 9201:9200
@@ -117,11 +117,11 @@ services:
       - ./elasticsearch/slave1/elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
       - ./elasticsearch/slave1/plugins:/usr/share/elasticsearch/plugins
     environment:
-      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+      - ES_JAVA_OPTS
 
   es-slave2:
     container_name: es-slave2
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:${elasticsearch_version}
     restart: always
     ports:
       - 9202:9200
@@ -133,7 +133,7 @@ services:
       - ./elasticsearch/slave2/elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
       - ./elasticsearch/slave2/plugins:/usr/share/elasticsearch/plugins
     environment:
-      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+      - ES_JAVA_OPTS
 
   es-head:
     container_name: es-head
@@ -149,7 +149,7 @@ services:
   kibana:
     container_name: kibana
     hostname: kibana
-    image: docker.elastic.co/kibana/kibana:7.14.1
+    image: docker.elastic.co/kibana/kibana:${elasticsearch_version}
     restart: always
     ports:
       - 5601:5601
@@ -178,7 +178,7 @@ services:
 #    # 主机名称
 #    hostname: filebeat
 #    # 镜像
-#    image: docker.elastic.co/beats/filebeat:7.14.1
+#    image: docker.elastic.co/beats/filebeat:{elasticsearch_version}
 #    # 重启机制
 #    restart: always
 #    # 配置文件无权限访问的问题
@@ -202,7 +202,7 @@ services:
   logstash:
     container_name: logstash
     hostname: logstash
-    image: docker.elastic.co/logstash/logstash:7.14.1
+    image: docker.elastic.co/logstash/logstash:${elasticsearch_version}
     restart: always
     volumes:
       # 映射到容器中

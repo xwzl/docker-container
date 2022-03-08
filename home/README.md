@@ -80,3 +80,14 @@
 启动后访问 password 和密码指定
  
     http://localhost:9100/?auth_user=elastic&auth_password=elastic
+
+# docker-compose 变量引用
+
+https://www.jianshu.com/p/b63f828e92ba
+
+- environment: 直接引用 .env key 
+- other: ${key}
+
+docker-compose config  查看修改后的参数
+
+

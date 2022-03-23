@@ -149,7 +149,7 @@ services:
       - rmqnamesrv-b:rmqnamesrv-b
       - rmqnamesrv-c:rmqnamesrv-c
   rmqconsole:
-    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq-dashboard:1.0.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq-dashboard:4.9.3
     container_name: rmqconsole
     hostname: rmqconsole
     links:

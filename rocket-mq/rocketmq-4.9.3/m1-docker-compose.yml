@@ -163,7 +163,7 @@ services:
     ports:
       - 8080:8080
     environment:
-      JAVA_OPTS: -Drocketmq.namesrv.addr=rmqnamesrv-a:9876;rmqnamesrv-b:9876;rmqnamesrv-c:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false
+      JAVA_OPTS: -Drocketmq.config.namesrvAddrs=rmqnamesrv-a:9876;rmqnamesrv-b:9876;rmqnamesrv-c:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false
 #    networks:
 #      rmq:
 #        aliases:

@@ -3,7 +3,8 @@ version: "3.3"
 services:
 
   mysql-master0: &mysql-master0
-    image: mysql:${TAG}
+    image: amd64/mysql
+#    image: amd64/mysql:${TAG}
     container_name: mysql-iflow-master0
     restart: unless-stopped
     env_file:
@@ -17,9 +18,10 @@ services:
       - "3306"
     volumes:
       - ./mysql-master0-data:/var/lib/mysql
-      - ./init-db-sql/iflow.sql:/docker-entrypoint-initdb.d/1-schema.sql
+#      - ./init-db-sql/iflow.sql:/docker-entrypoint-initdb.d/1-schema.sql
       - ./init-db-sql/init-master.sh:/docker-entrypoint-initdb.d/2-init-master.sh
     command: [
+        "--default-authentication-plugin=mysql_native_password",
         "--log-bin=mysql-bin",
         "--server-id=${MASTER0_SERVER_ID}",
         "--character-set-server=utf8mb4",
@@ -40,9 +42,11 @@ services:
       - mysql-master0
     volumes:
       - ./mysql-master0-node-1-data:/var/lib/mysql
-      - ./init-db-sql/iflow.sql:/docker-entrypoint-initdb.d/1-schema.sql
+#      - ./init-db-sql/iflow.sql:/docker-entrypoint-initdb.d/1-schema.sql
       - ./init-db-sql/init-master0-node.sh:/docker-entrypoint-initdb.d/2-init-node.sh
     command: [
+        "--default-authentication-plugin=mysql_native_password",
+        "--default-authentication-plugin=mysql_native_password",
         "--server-id=${MASTER0_NODE_1_SERVER_ID}",
         "--character-set-server=utf8mb4",
         "--collation-server=utf8mb4_unicode_ci",
@@ -59,15 +63,17 @@ services:
       - "36007:3306"
     volumes:
       - ./mysql-master0-node-2-data:/var/lib/mysql
-      - ./init-db-sql/iflow.sql:/docker-entrypoint-initdb.d/1-schema.sql
+#      - ./init-db-sql/iflow.sql:/docker-entrypoint-initdb.d/1-schema.sql
       - ./init-db-sql/init-master0-node.sh:/docker-entrypoint-initdb.d/2-init-node.sh
     command: [
+        "--default-authentication-plugin=mysql_native_password",
         "--server-id=${MASTER0_NODE_2_SERVER_ID}",
         "--character-set-server=utf8mb4",
         "--collation-server=utf8mb4_unicode_ci",
     ]
   mysql-master1: &mysql-master1
-    image: mysql:${TAG}
+#    image: amd64/mysql:${TAG}
+    image: amd64/mysql
     container_name: mysql-iflow-master1
     restart: unless-stopped
     env_file:
@@ -81,9 +87,10 @@ services:
       - "3306"
     volumes:
       - ./mysql-master1-data:/var/lib/mysql
-      - ./init-db-sql/iflow.sql:/docker-entrypoint-initdb.d/1-schema.sql
+#      - ./init-db-sql/iflow.sql:/docker-entrypoint-initdb.d/1-schema.sql
       - ./init-db-sql/init-master.sh:/docker-entrypoint-initdb.d/2-init-master.sh
     command: [
+        "--default-authentication-plugin=mysql_native_password",
         "--log-bin=mysql-bin",
         "--server-id=${MASTER1_SERVER_ID}",
         "--character-set-server=utf8mb4",
@@ -104,9 +111,10 @@ services:
       - mysql-master1
     volumes:
       - ./mysql-master1-node-1-data:/var/lib/mysql
-      - ./init-db-sql/iflow.sql:/docker-entrypoint-initdb.d/1-schema.sql
+#      - ./init-db-sql/iflow.sql:/docker-entrypoint-initdb.d/1-schema.sql
       - ./init-db-sql/init-master1-node.sh:/docker-entrypoint-initdb.d/2-init-node.sh
     command: [
+        "--default-authentication-plugin=mysql_native_password",
         "--server-id=${MASTER1_NODE_1_SERVER_ID}",
         "--character-set-server=utf8mb4",
         "--collation-server=utf8mb4_unicode_ci",

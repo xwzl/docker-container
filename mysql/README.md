@@ -1,0 +1,1 @@
+# windows 情况下把脚本 #!/bin/bash 删除可启动

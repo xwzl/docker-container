@@ -1,9 +1,6 @@
 version: '3.5'
 services:
   rmqnamesrv-a:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
     image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:${RocketMqVersion}
     container_name: rmqnamesrv-a
     hostname: rmqnamesrv-a
@@ -12,16 +9,9 @@ services:
     volumes:
       - ./rocketmq/logs/nameserver-a:/home/rocketmq/logs
       - ./rocketmq/store/nameserver-a:/home/rocketmq/store
-#      - ./runserver.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runserver.sh
+      - ./runserver.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runserver.sh
     command: sh mqnamesrv
-#    networks:
-#      rmq:
-#        aliases:
-#          - rmqnamesrv-a
   rmqnamesrv-b:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
     image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:${RocketMqVersion}
     container_name: rmqnamesrv-b
     hostname: rmqnamesrv-b
@@ -30,7 +20,7 @@ services:
     volumes:
       - ./rocketmq/logs/nameserver-b:/home/rocketmq/logs
       - ./rocketmq/store/nameserver-b:/home/rocketmq/store
-#      - ./runserver.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runserver.sh
+      - ./runserver.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runserver.sh
     command: sh mqnamesrv
   rmqnamesrv-c:
     image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:${RocketMqVersion}
@@ -41,12 +31,9 @@ services:
     volumes:
       - ./rocketmq/logs/nameserver-c:/home/rocketmq/logs
       - ./rocketmq/store/nameserver-c:/home/rocketmq/store
-#      - ./runserver.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runserver.sh
+      - ./runserver.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runserver.sh
     command: sh mqnamesrv
   rmqbroker-a:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
     image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:${RocketMqVersion}
     container_name: rmqbroker-a
     hostname: rmqbroker-a
@@ -56,7 +43,7 @@ services:
       - ./rocketmq/logs/broker-a:/home/rocketmq/logs
       - ./rocketmq/store/broker-a:/home/rocketmq/store
       - ./broker-a.conf:/home/rocketmq/conf/broker.conf
-#      - ./runbroker.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runbroker.sh
+      - ./runbroker.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runbroker.sh
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-a:9876"
@@ -67,14 +54,7 @@ services:
       - rmqnamesrv-a:rmqnamesrv-a
       - rmqnamesrv-b:rmqnamesrv-b
       - rmqnamesrv-c:rmqnamesrv-c
-#    networks:
-#      rmq:
-#        aliases:
-#          - rmqbroker-a
   rmqbroker-a-s:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
     image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:${RocketMqVersion}
     container_name: rmqbroker-a-s
     hostname: rmqbroker-a-s
@@ -84,7 +64,7 @@ services:
       - ./rocketmq/logs/broker-a-s:/home/rocketmq/logs
       - ./rocketmq/store/broker-a-s:/home/rocketmq/store
       - ./broker-a-s.conf:/home/rocketmq/conf/broker.conf
-#      - ./runbroker.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runbroker.sh
+      - ./runbroker.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runbroker.sh
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-a:9876"
@@ -97,9 +77,6 @@ services:
       - rmqnamesrv-c:rmqnamesrv-c
 
   rmqbroker-b:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
     image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:${RocketMqVersion}
     container_name: rmqbroker-b
     hostname: rmqbroker-b
@@ -109,7 +86,7 @@ services:
       - ./rocketmq/logs/broker-b:/home/rocketmq/logs
       - ./rocketmq/store/broker-b:/home/rocketmq/store
       - ./broker-b.conf:/home/rocketmq/conf/broker.conf
-#      - ./runbroker.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runbroker.sh
+      - ./runbroker.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runbroker.sh
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-b:9876"
@@ -120,14 +97,7 @@ services:
       - rmqnamesrv-a:rmqnamesrv-a
       - rmqnamesrv-b:rmqnamesrv-b
       - rmqnamesrv-c:rmqnamesrv-c
-#    networks:
-#      rmq:
-#        aliases:
-#          - rmqbroker-b
   rmqbroker-b-s:
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
     image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq:${RocketMqVersion}
     container_name: rmqbroker-b-s
     hostname: rmqbroker-b-s
@@ -137,7 +107,7 @@ services:
       - ./rocketmq/logs/broker-b-s:/home/rocketmq/logs
       - ./rocketmq/store/broker-b-s:/home/rocketmq/store
       - ./broker-b-s.conf:/home/rocketmq/conf/broker.conf
-#      - ./runbroker.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runbroker.sh
+      - ./runbroker.sh:/home/rocketmq/rocketmq-${RocketMqVersion}/bin/runbroker.sh
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rmqnamesrv-b:9876"
@@ -149,7 +119,7 @@ services:
       - rmqnamesrv-b:rmqnamesrv-b
       - rmqnamesrv-c:rmqnamesrv-c
   rmqconsole:
-    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq-dashboard:1.0.1
+    image: registry.cn-hangzhou.aliyuncs.com/xuweizhi/rocketmq-dashboard:${RocketMqVersion}
     container_name: rmqconsole
     hostname: rmqconsole
     links:
@@ -164,11 +134,4 @@ services:
       - 8080:8080
     environment:
       JAVA_OPTS: -Drocketmq.config.namesrvAddrs=rmqnamesrv-a:9876;rmqnamesrv-b:9876;rmqnamesrv-c:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false
-#    networks:
-#      rmq:
-#        aliases:
-#          - rmqconsole
-#networks:
-#  rmq:
-#    name: rmq
-#    driver: bridge
+

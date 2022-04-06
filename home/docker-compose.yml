@@ -37,6 +37,7 @@ services:
 #    container_name: redis
 #    ports:
 #      - 15826:6379
+#    command: ["redis-server", "--appendonly", "yes", "--requirepass","158262751"]
 #  mysql:
 #    image: mysql
 ##    m1 芯片组

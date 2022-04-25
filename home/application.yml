@@ -42,7 +42,7 @@ seata:
     # support: file 、 db 、 redis
     mode: db
     db:
-      url: jdbc:mysql://1.15.19.68:3306/seata?rewriteBatchedStatements=true"
+      url: jdbc:mysql://1.15.19.68:3306/seata?rewriteBatchedStatements=true
       user: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver

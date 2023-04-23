@@ -41,7 +41,7 @@ services:
       - ./data/a/broker/logs:/home/rocketmq/logs
       - ./data/a/broker/store:/home/rocketmq/store
       - ./config/broker-a.conf:/opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
-    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
+    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf --enable-proxy &
 
   #Service for another broker -- broker1
   broker-a-s:
@@ -54,14 +54,14 @@ services:
     ports:
       - 10929:10909
       - 10931:10931
-      - 10932:10912
+      - 10932:10932
     environment:
       - NAMESRV_ADDR=namesrv-a:9876;namesrv-b:9876;namesrv-c:9876
     volumes:
       - ./data/a-s/broker/logs:/home/rocketmq/logs
       - ./data/a-s/broker/store:/home/rocketmq/store
       - ./config/broker-a-s.conf:/opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
-    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
+    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf --enable-proxy &
   broker-b:
     image: apache/rocketmq:${ROCKETMQ_VERSION}
     container_name: broker-b
@@ -72,14 +72,14 @@ services:
     ports:
       - 10939:10909
       - 10941:10941
-      - 10942:10912
+      - 10942:10942
     environment:
       - NAMESRV_ADDR=namesrv-a:9876;namesrv-b:9876;namesrv-c:9876
     volumes:
       - ./data/b/broker/logs:/home/rocketmq/logs
       - ./data/b/broker/store:/home/rocketmq/store
       - ./config/broker-b.conf:/opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
-    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
+    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf --enable-proxy &
 
   #Service for another broker -- broker1
   broker-b-s:
@@ -92,14 +92,14 @@ services:
     ports:
       - 10949:10909
       - 10951:10951
-      - 10952:10912
+      - 10952:10952
     environment:
       - NAMESRV_ADDR=namesrv-a:9876;namesrv-b:9876;namesrv-c:9876
     volumes:
       - ./data/b-s/broker/logs:/home/rocketmq/logs
       - ./data/b-s/broker/store:/home/rocketmq/store
       - ./config/broker-b-s.conf:/opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
-    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
+    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf --enable-proxy &
   broker-c:
     image: apache/rocketmq:${ROCKETMQ_VERSION}
     container_name: broker-c
@@ -110,14 +110,14 @@ services:
     ports:
       - 10959:10909
       - 10961:10961
-      - 10962:10912
+      - 10962:10952
     environment:
       - NAMESRV_ADDR=namesrv-a:9876;namesrv-b:9876;namesrv-c:9876
     volumes:
       - ./data/c/broker/logs:/home/rocketmq/logs
       - ./data/c/broker/store:/home/rocketmq/store
       - ./config/broker-c.conf:/opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
-    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
+    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf --enable-proxy &
 
   #Service for another broker -- broker1
   broker-c-s:
@@ -130,14 +130,14 @@ services:
     ports:
       - 10969:10909
       - 10971:10971
-      - 10972:10912
+      - 10972:10972
     environment:
       - NAMESRV_ADDR=namesrv-a:9876;namesrv-b:9876;namesrv-c:9876
     volumes:
       - ./data/c-s/broker/logs:/home/rocketmq/logs
       - ./data/c-s/broker/store:/home/rocketmq/store
       - ./config/broker-c-s.conf:/opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
-    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf
+    command: sh mqbroker -c /opt/rocketmq-${ROCKETMQ_VERSION}/conf/broker.conf --enable-proxy &
 
 
   rmqconsole:

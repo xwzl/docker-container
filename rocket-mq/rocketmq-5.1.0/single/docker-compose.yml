@@ -1,4 +1,4 @@
-version: '2'
+cversion: '2'
 services:
   namesrv:
     image: apache/rocketmq:${ROCKETMQ_VERSION}
@@ -52,5 +52,5 @@ services:
     ports:
       - 8080:8080
     environment:
-      JAVA_OPTS: -Drocketmq.config.namesrvAddrs=namesrv:9876; -Dcom.rocketmq.sendMessageWithVIPChannel=false
+      JAVA_OPTS: -Drocketmq.config.namesrvAddr=namesrv:9876; -Dcom.rocketmq.sendMessageWithVIPChannel=false
 

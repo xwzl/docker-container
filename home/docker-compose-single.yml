@@ -96,13 +96,14 @@ services:
       - 9200:9200
       - 9300:9300
     volumes:
-      - ./elasticsearch/master/conf/es-master.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+#      - ./elasticsearch/master/conf/es-master.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ./elasticsearch/master/data:/usr/share/elasticsearch/data
       - ./elasticsearch/master/logs:/usr/share/elasticsearch/logs
       - ./elasticsearch/master/elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
       - ./elasticsearch/master/plugins:/usr/share/elasticsearch/plugins
     environment:
       - ES_JAVA_OPTS
+      - "discovery.type=single-node"
 
 #  es-slave1:
 #    container_name: es-slave1

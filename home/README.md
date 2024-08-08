@@ -90,4 +90,16 @@ https://www.jianshu.com/p/b63f828e92ba
 
 docker-compose config  查看修改后的参数
 
+# skywalking 
+
+agent 下载
+
+    https://skywalking.apache.org/downloads/
+
+启动命令追加
+
+    -javaagent:/Users/xuweizhi/Documents/projects/docker-container/skywalking-agent/skywalking-agent.jar
+    -Dskywalking.agent.service_name=study_logback
+    -Dskywalking.collector.backend_service=127.0.0.1:11800
+
 

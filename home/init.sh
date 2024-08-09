@@ -28,7 +28,7 @@ fi
 
  echo -e "${GREEN_COLOR}---> create [logstash]directory start.${RES}"
  if [ ! -d "./logstash/" ]; then
- mkdir -p ./logstash/conf ./logstash/logs
+ mkdir -p ./logstash/conf ./logstash/logs ./logstash/yml
  fi
 
 echo -e "${GREEN_COLOR}---> create [filebeat]directory start.${RES}"
@@ -93,6 +93,7 @@ echo -e "${GREEN_COLOR}---> move [logstash]config file start.${RES}"
 if [ -f "./logstash-filebeat.conf" ]; then
 mv ./logstash-filebeat.conf ./logstash/conf
 mv ./logstash.conf ./logstash/conf
+mv ./logstash.yml ./logstash/yml
 fi
 
 echo -e "${GREEN_COLOR}---> move [filebeat]config file start.${RES}"

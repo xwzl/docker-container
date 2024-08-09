@@ -27,6 +27,9 @@ filebeat.inputs:
   paths:
     - /var/log/*.log
     #- c:\programdata\elasticsearch\logs\*
+  multiline.pattern: '^\\d+\\.\\d+\\.\\d+\\.\\d+'
+  multiline.negate: true
+  multiline.match: after
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
   # matching any regular expression from the list.

@@ -73,6 +73,20 @@ services:
       - elasticsearch.hosts=http://es-master:9200
     depends_on:
       - es-master
+  filebeat:
+    container_name: filebeat
+    hostname: filebeat
+    image: docker.elastic.co/beats/filebeat:${elasticsearch_version}
+    restart: always
+    entrypoint: "filebeat -e -strict.perms=false"
+    # 持久化挂载
+    volumes:
+      - ./filebeat/conf/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      # 映射到容器中[作为数据源]
+      - /Users/xuweizhi/Documents/projects/spring-cloud/logs:/var/log/
+      - ./filebeat/logs:/usr/share/filebeat/logs
+      - ./filebeat/data:/usr/share/filebeat/data
+    # 将指定容器连接到当前连接，可以设置别名，避免ip方式导致的容器重启动态改变的无法连接情况
   logstash:
     container_name: logstash
     hostname: logstash
@@ -83,12 +97,8 @@ services:
       - ./logstash/conf/:/usr/share/logstash/pipeline/
     environment:
       - TZ=Asia/Shanghai
-#      links:
-#        - es-master:es-master
     ports:
       - 5044:5044
-    depends_on:
-      - es-master
   oap:
     image: apache/skywalking-oap-server
     container_name: oap

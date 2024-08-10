@@ -90,8 +90,7 @@ mv ./kibana.yml ./kibana/conf
 fi
 
 echo -e "${GREEN_COLOR}---> move [logstash]config file start.${RES}"
-if [ -f "./logstash-filebeat.conf" ]; then
-mv ./logstash-filebeat.conf ./logstash/conf
+if [ -f "./logstash.conf" ]; then
 mv ./logstash.conf ./logstash/conf
 mv ./logstash.yml ./logstash/yml
 fi

@@ -99,6 +99,7 @@ services:
       - TZ=Asia/Shanghai
     ports:
       - 5044:5044
+      - 5045:5045
   oap:
     image: apache/skywalking-oap-server
     container_name: oap

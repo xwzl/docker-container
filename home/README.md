@@ -102,4 +102,28 @@ agent 下载
     -Dskywalking.agent.service_name=study_logback
     -Dskywalking.collector.backend_service=127.0.0.1:11800
 
+# ELFK
+
+日志输出格式与logstash grok match 进行匹配，通过正则表达式进行字段拆分。
+
+    | 127.0.0.1 127.0.0.1 2024-08-10 11:48:08.562  INFO 49703 --- [demo] [           main]  [TID:NA] c.s.starter.config.StarterAutoConfig     : The classpath contained in the current context will be initialized. This is the bean defined in spring-starter , specifying name = com.spring.common.model.Apple
+grok 语法
+
+    \| %{IPV4:clientIp} %{IPV4:host} %{TIMESTAMP_ISO8601:timeStamp}\s{0,10}%{LOGLEVEL:level}\s{0,10}%{NUMBER:pid}\s{0,10}\---\s{0,10}\[%{USER:appName}\]\s{0,10}\[\s{0,15}%{USER:threadName}\]\s{0,10}\[TID:%{USERNAME:tid}\] \.{0,1}%{JAVACLASS:class}\s{0,40}:%{JAVALOGMESSAGE:msg}
+
+可以在 kibana 调试工具中调试 
+
+filebeat 进行日志合并
+
+    - type: log
+      # Change to true to enable this input configuration.
+      enabled: true
+    
+      # Paths that should be crawled and fetched. Glob based paths.
+      paths:
+        - /var/log/*.log
+          #- c:\programdata\elasticsearch\logs\*
+          multiline.pattern: '^\|'
+          multiline.negate: true
+          multiline.match: after
 

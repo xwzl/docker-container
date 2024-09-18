@@ -13,7 +13,7 @@ scrape_configs: #抓取性能数据任务配置
     scrape_interval: 10s  #每10s抓取一次
     metrics_path: '/actuator/prometheus'  #抓取的数据url
     static_configs:
-      - targets: [ '192.168.124.19:11111' ]  #抓取的服务器地址
+      - targets: [ 'host.docker.internal:11111' ]  #抓取的服务器地址
         labels:
           application: 'demo-local'  #抓取任务标签
   - job_name: 'prometheus'  #抓取prometheus自身性能指标数据任务

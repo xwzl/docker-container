@@ -1,0 +1,22 @@
+global: #全局配置
+  scrape_interval: 15s  #全局定时任务抓取性能数据间隔
+
+scrape_configs: #抓取性能数据任务配置
+  - job_name: 'emr'  #抓取订单服务性能指标数据任务，一个job下可以配置多个抓紧的targets，比如订单服务多个实例机器
+    scrape_interval: 10s  #每10s抓取一次
+    metrics_path: '/emr/kzkj/hos/actuator/prometheus'  #抓取的数据url
+    static_configs:
+      - targets: [ '192.168.110.75:9095' ]  #抓取的服务器地址
+        labels:
+          application: 'kzkj-local'  #抓取任务标签
+  - job_name: 'demo'  #抓取订单服务性能指标数据任务，一个job下可以配置多个抓紧的targets，比如订单服务多个实例机器
+    scrape_interval: 10s  #每10s抓取一次
+    metrics_path: '/actuator/prometheus'  #抓取的数据url
+    static_configs:
+      - targets: [ '192.168.124.19:11111' ]  #抓取的服务器地址
+        labels:
+          application: 'demo-local'  #抓取任务标签
+  - job_name: 'prometheus'  #抓取prometheus自身性能指标数据任务
+    scrape_interval: 5s
+    static_configs:
+      - targets: [ 'prometheus:9090' ]

@@ -111,3 +111,6 @@ elasticsearch.password: "elastic"
 
 # Specifies locale to be used for all localizable strings, dates and number formats.
 i18n.locale: "zh-CN"
+
+# 添加 token 过期时间
+xpack.security.session.idleTimeout: "365d"

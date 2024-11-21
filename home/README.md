@@ -127,3 +127,6 @@ filebeat 进行日志合并
           multiline.negate: true
           multiline.match: after
 
+# kibana 配置时间格式
+
+![img.png](img.png)

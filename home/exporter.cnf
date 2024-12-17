@@ -1,0 +1,5 @@
+[client]
+host=192.168.110.72
+port=3308
+user=exporter
+password=exporter

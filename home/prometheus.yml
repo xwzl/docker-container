@@ -20,3 +20,21 @@ scrape_configs: #抓取性能数据任务配置
     scrape_interval: 5s
     static_configs:
       - targets: [ 'prometheus:9090' ]
+  - job_name: 'linux'
+    scrape_interval: 5s  #每10s抓取一次
+    static_configs:
+      - targets: [ '192.168.110.72:9100' ]  #抓取的服务器地址
+        labels:
+          application: 'linux-72'  #抓取任务标签
+  - job_name: 'mysql'
+    scrape_interval: 5s
+    static_configs:
+      - targets: [ '192.168.110.72:9104' ]
+        labels:
+          instance: 'mysql-3308'
+  - job_name: 'redis'
+    scrape_interval: 5s
+    static_configs:
+      - targets: [ '192.168.110.72:9121' ]
+        labels:
+          instance: 'redis-72'

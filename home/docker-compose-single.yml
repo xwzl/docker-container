@@ -153,3 +153,42 @@ services:
       - ./grafana/data:/var/lib/grafana
     depends_on:
       - prometheus  #grafana需要在prometheus之后启动
+  redis_exporter:
+    image: oliver006/redis_exporter
+    container_name: redis_exporter
+    ports:
+      - "9121:9121"
+    command:
+      - --redis.addr=redis://192.168.110.72:6379
+      - --redis.password="kzkj@_Cloud.1"
+  mysqld-exporter:
+    image: prom/mysqld-exporter
+    container_name: mysqld-exporter
+    volumes:
+      - ./exporter.cnf:/etc/mysql/my.cnf
+    command:
+      - --config.my-cnf=/etc/mysql/my.cnf
+      - --collect.global_status
+      - --collect.info_schema.innodb_metrics
+      - --collect.auto_increment.columns
+      - --collect.binlog_size
+      - --collect.engine_innodb_status
+      - --collect.engine_tokudb_status
+      - --collect.global_variables
+      - --collect.info_schema.processlist
+      - --collect.info_schema.query_response_time
+      - --collect.info_schema.tables
+      - --collect.info_schema.tablestats
+      - --collect.perf_schema.eventsstatements
+      - --collect.perf_schema.eventswaits
+      - --collect.perf_schema.file_events
+      - --collect.perf_schema.indexiowaits
+      - --collect.perf_schema.tablelocks
+      - --collect.slave_status
+    ports:
+      - 9104:9104
+  node-exporter:
+    image: prom/node-exporter
+    container_name: node-exporter
+    ports:
+      - "9100:9100"

@@ -192,3 +192,23 @@ services:
     container_name: node-exporter
     ports:
       - "9100:9100"
+  postgres_exporter:
+    image: quay.io/prometheuscommunity/postgres-exporter
+    ports:
+      - "9187:9187"
+    environment:
+      DATA_SOURCE_URI: 192.168.110.80:5432/postgres?sslmode=disable
+      DATA_SOURCE_USER: postgres
+      DATA_SOURCE_PASS: postgres
+#  postgres-exporter-x:
+#    image: bitnami/postgres-exporter
+#    restart: always
+#    container_name: postgres-exporter-x
+#    environment:
+#      DATA_SOURCE_NAME: "postgresql://postgres:postgres@192.168.110.80:5432/postgres?sslmode=disable"
+#    volumes:
+#      - /etc/localtime:/etc/localtime:ro
+#    ports:
+#      - 9187:9187
+#    networks:
+#      - default

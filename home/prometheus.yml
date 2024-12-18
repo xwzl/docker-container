@@ -38,3 +38,9 @@ scrape_configs: #抓取性能数据任务配置
       - targets: [ '192.168.110.72:9121' ]
         labels:
           instance: 'redis-72'
+  - job_name: 'postgres'
+    scrape_interval: 5s
+    static_configs:
+      - targets: [ '192.168.110.72:9187' ]
+        labels:
+          instance: 'postgres-72'

@@ -130,3 +130,19 @@ filebeat 进行日志合并
 # kibana 配置时间格式
 
 ![img.png](img.png)
+
+
+设置最大分片数量
+
+PUT _cluster/settings
+{
+    "persistent": {
+    "cluster": {
+        "max_shards_per_node": 10000
+            } 
+    }
+}
+
+查询配置信息
+
+GET /_cluster/settings?pretty

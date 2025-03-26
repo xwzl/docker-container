@@ -19,30 +19,26 @@ services:
 #    environment:
 #      MYSQL_ROOT_PASSWORD: root
 #      TZ: Asia/Shanghai
-#      #    volumes:
-#      #      - ./mysql/data:/var/lib/mysql
+#    volumes:
+#      - ./mysql/data:/var/lib/mysql
 #      #      - ./mysql/conf/my.cnf:/etc/mysql/conf.d/my.cnf
 #    #      - ./mysql/init:/docker-entrypoint-initdb.d/
 #    ports:
 #      - 3306:3306
-#  nacos:
-#    # mysql 启动好以后要重新移动一次
-#    image: nacos/nacos-server:2.0.2
-#    container_name: nacos
-#    env_file:
-#      - ./nacos/conf/nacos.env
-#    links:
-#      - mysql:mysql
-#    volumes:
-#      - ./nacos/conf/nacos.properties:/home/nacos/init.d/custom.properties
-#    #      - ./standalone-logs/:/home/nacos/logs
-#    ports:
-#      - "8848:8848"
-#      - "9848:9848"
-#      - "9555:9555"
-#    depends_on:
-#      - mysql
-#    restart: always
+  nacos:
+    # mysql 启动好以后要重新移动一次
+    image: nacos/nacos-server:v2.5.1
+    container_name: nacos
+    env_file:
+      - ./nacos/conf/nacos.env
+    volumes:
+      - ./nacos/conf/nacos.properties:/home/nacos/conf/application.properties
+    #      - ./standalone-logs/:/home/nacos/logs
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+      - "9555:9555"
+    restart: always
 #  es-master:
 #    container_name: es-master
 #    hostname: es-master
@@ -131,75 +127,75 @@ services:
 #      - 8080:8080
 #    environment:
 #      SW_OAP_ADDRESS: http://oap:12800
-  prometheus:
-    image: prom/prometheus
-    container_name: prometheus
-    volumes:
-      - ./prometheus/conf:/etc/prometheus
-      - ./prometheus/data:/prometheus
-      - /etc/localtime:/etc/localtime:ro
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-    ports:
-      - '9090:9090'
-  grafana:
-    image: grafana/grafana
-    container_name: grafana
-    ports:
-      - '3000:3000'
-    volumes:
-      - ./grafana/conf/grafana.ini:/etc/grafana/grafana.ini  #grafana报警邮件配置
-      - /etc/localtime:/etc/localtime:ro
-      - ./grafana/data:/var/lib/grafana
-    depends_on:
-      - prometheus  #grafana需要在prometheus之后启动
-  redis_exporter:
-    image: oliver006/redis_exporter
-    container_name: redis_exporter
-    ports:
-      - "9121:9121"
-    environment:
-      REDIS_ADDR: redis:6379
-      REDIS_PASSWORD: kzkj@_Cloud.1
-  mysqld-exporter:
-    image: prom/mysqld-exporter
-    container_name: mysqld-exporter
-    volumes:
-      - ./exporter.cnf:/etc/mysql/my.cnf
-    command:
-      - --config.my-cnf=/etc/mysql/my.cnf
-      - --collect.global_status
-      - --collect.info_schema.innodb_metrics
-      - --collect.auto_increment.columns
-      - --collect.binlog_size
-      - --collect.engine_innodb_status
-      - --collect.engine_tokudb_status
-      - --collect.global_variables
-      - --collect.info_schema.processlist
-      - --collect.info_schema.query_response_time
-      - --collect.info_schema.tables
-      - --collect.info_schema.tablestats
-      - --collect.perf_schema.eventsstatements
-      - --collect.perf_schema.eventswaits
-      - --collect.perf_schema.file_events
-      - --collect.perf_schema.indexiowaits
-      - --collect.perf_schema.tablelocks
-      - --collect.slave_status
-    ports:
-      - 9104:9104
-  node-exporter:
-    image: prom/node-exporter
-    container_name: node-exporter
-    ports:
-      - "9100:9100"
-  postgres_exporter:
-    image: quay.io/prometheuscommunity/postgres-exporter
-    ports:
-      - "9187:9187"
-    environment:
-      DATA_SOURCE_URI: 192.168.110.80:5432/postgres?sslmode=disable
-      DATA_SOURCE_USER: postgres
-      DATA_SOURCE_PASS: postgres
+#  prometheus:
+#    image: prom/prometheus
+#    container_name: prometheus
+#    volumes:
+#      - ./prometheus/conf:/etc/prometheus
+#      - ./prometheus/data:/prometheus
+#      - /etc/localtime:/etc/localtime:ro
+#    command:
+#      - '--config.file=/etc/prometheus/prometheus.yml'
+#    ports:
+#      - '9090:9090'
+#  grafana:
+#    image: grafana/grafana
+#    container_name: grafana
+#    ports:
+#      - '3000:3000'
+#    volumes:
+#      - ./grafana/conf/grafana.ini:/etc/grafana/grafana.ini  #grafana报警邮件配置
+#      - /etc/localtime:/etc/localtime:ro
+#      - ./grafana/data:/var/lib/grafana
+#    depends_on:
+#      - prometheus  #grafana需要在prometheus之后启动
+#  redis_exporter:
+#    image: oliver006/redis_exporter
+#    container_name: redis_exporter
+#    ports:
+#      - "9121:9121"
+#    environment:
+#      REDIS_ADDR: redis:6379
+#      REDIS_PASSWORD: kzkj@_Cloud.1
+#  mysqld-exporter:
+#    image: prom/mysqld-exporter
+#    container_name: mysqld-exporter
+#    volumes:
+#      - ./exporter.cnf:/etc/mysql/my.cnf
+#    command:
+#      - --config.my-cnf=/etc/mysql/my.cnf
+#      - --collect.global_status
+#      - --collect.info_schema.innodb_metrics
+#      - --collect.auto_increment.columns
+#      - --collect.binlog_size
+#      - --collect.engine_innodb_status
+#      - --collect.engine_tokudb_status
+#      - --collect.global_variables
+#      - --collect.info_schema.processlist
+#      - --collect.info_schema.query_response_time
+#      - --collect.info_schema.tables
+#      - --collect.info_schema.tablestats
+#      - --collect.perf_schema.eventsstatements
+#      - --collect.perf_schema.eventswaits
+#      - --collect.perf_schema.file_events
+#      - --collect.perf_schema.indexiowaits
+#      - --collect.perf_schema.tablelocks
+#      - --collect.slave_status
+#    ports:
+#      - 9104:9104
+#  node-exporter:
+#    image: prom/node-exporter
+#    container_name: node-exporter
+#    ports:
+#      - "9100:9100"
+#  postgres_exporter:
+#    image: quay.io/prometheuscommunity/postgres-exporter
+#    ports:
+#      - "9187:9187"
+#    environment:
+#      DATA_SOURCE_URI: 192.168.110.80:5432/postgres?sslmode=disable
+#      DATA_SOURCE_USER: postgres
+#      DATA_SOURCE_PASS: postgres
 #  postgres-exporter-x:
 #    image: bitnami/postgres-exporter
 #    restart: always

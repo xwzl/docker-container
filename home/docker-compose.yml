@@ -55,24 +55,24 @@ services:
 #      - ./mysql/init:/docker-entrypoint-initdb.d/
 #    ports:
 #      - 3306:3306
-#  nacos:
-#    # mysql 启动好以后要重新移动一次
-#    image: nacos/nacos-server:2.0.2
-#    container_name: nacos
-#    env_file:
-#      - ./nacos/conf/nacos.env
+  nacos:
+    # mysql 启动好以后要重新移动一次
+    image: nacos/nacos-server:v3.0.0
+    container_name: nacos
+    env_file:
+      - ./nacos/conf/nacos.env
 #    links:
 #      - mysql:mysql
 #    volumes:
 #      - ./nacos/conf/nacos.properties:/home/nacos/init.d/custom.properties
-#    #      - ./standalone-logs/:/home/nacos/logs
-#    ports:
-#      - "8848:8848"
-#      - "9848:9848"
-#      - "9555:9555"
+    #      - ./standalone-logs/:/home/nacos/logs
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+      - "9555:9555"
 #    depends_on:
 #      - mysql
-#    restart: always
+    restart: always
 
   #  nginx:
   #    container_name: nginx
@@ -87,91 +87,91 @@ services:
   #      - ./nginx/logs:/var/log/nginx
   #    depends_on:
   #      - spring-elastic
-  es-master:
-    container_name: es-master
-    hostname: es-master
-    image: docker.elastic.co/elasticsearch/elasticsearch:${elasticsearch_version}
-    restart: always
-    ports:
-      - 9200:9200
-      - 9300:9300
-    volumes:
-      - ./elasticsearch/master/conf/es-master.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-      - ./elasticsearch/master/data:/usr/share/elasticsearch/data
-      - ./elasticsearch/master/logs:/usr/share/elasticsearch/logs
-      - ./elasticsearch/master/elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
-      - ./elasticsearch/master/plugins:/usr/share/elasticsearch/plugins
-    environment:
-      - ES_JAVA_OPTS
+#  es-master:
+#    container_name: es-master
+#    hostname: es-master
+#    image: docker.elastic.co/elasticsearch/elasticsearch:${elasticsearch_version}
+#    restart: always
+#    ports:
+#      - 9200:9200
+#      - 9300:9300
+#    volumes:
+#      - ./elasticsearch/master/conf/es-master.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+#      - ./elasticsearch/master/data:/usr/share/elasticsearch/data
+#      - ./elasticsearch/master/logs:/usr/share/elasticsearch/logs
+#      - ./elasticsearch/master/elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
+#      - ./elasticsearch/master/plugins:/usr/share/elasticsearch/plugins
+#    environment:
+#      - ES_JAVA_OPTS
 
-  es-slave1:
-    container_name: es-slave1
-    image: docker.elastic.co/elasticsearch/elasticsearch:${elasticsearch_version}
-    restart: always
-    ports:
-      - 9201:9200
-      - 9301:9300
-    volumes:
-      - ./elasticsearch/slave1/conf/es-slave1.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-      - ./elasticsearch/slave1/data:/usr/share/elasticsearch/data
-      - ./elasticsearch/slave1/logs:/usr/share/elasticsearch/logs
-      - ./elasticsearch/slave1/elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
-      - ./elasticsearch/slave1/plugins:/usr/share/elasticsearch/plugins
-    environment:
-      - ES_JAVA_OPTS
+#  es-slave1:
+#    container_name: es-slave1
+#    image: docker.elastic.co/elasticsearch/elasticsearch:${elasticsearch_version}
+#    restart: always
+#    ports:
+#      - 9201:9200
+#      - 9301:9300
+#    volumes:
+#      - ./elasticsearch/slave1/conf/es-slave1.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+#      - ./elasticsearch/slave1/data:/usr/share/elasticsearch/data
+#      - ./elasticsearch/slave1/logs:/usr/share/elasticsearch/logs
+#      - ./elasticsearch/slave1/elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
+#      - ./elasticsearch/slave1/plugins:/usr/share/elasticsearch/plugins
+#    environment:
+#      - ES_JAVA_OPTS
 
-  es-slave2:
-    container_name: es-slave2
-    image: docker.elastic.co/elasticsearch/elasticsearch:${elasticsearch_version}
-    restart: always
-    ports:
-      - 9202:9200
-      - 9302:9300
-    volumes:
-      - ./elasticsearch/slave2/conf/es-slave2.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-      - ./elasticsearch/slave2/data:/usr/share/elasticsearch/data
-      - ./elasticsearch/slave2/logs:/usr/share/elasticsearch/logs
-      - ./elasticsearch/slave2/elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
-      - ./elasticsearch/slave2/plugins:/usr/share/elasticsearch/plugins
-    environment:
-      - ES_JAVA_OPTS
+#  es-slave2:
+#    container_name: es-slave2
+#    image: docker.elastic.co/elasticsearch/elasticsearch:${elasticsearch_version}
+#    restart: always
+#    ports:
+#      - 9202:9200
+#      - 9302:9300
+#    volumes:
+#      - ./elasticsearch/slave2/conf/es-slave2.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+#      - ./elasticsearch/slave2/data:/usr/share/elasticsearch/data
+#      - ./elasticsearch/slave2/logs:/usr/share/elasticsearch/logs
+#      - ./elasticsearch/slave2/elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
+#      - ./elasticsearch/slave2/plugins:/usr/share/elasticsearch/plugins
+#    environment:
+#      - ES_JAVA_OPTS
 
-  es-head:
-    container_name: es-head
-    image: mobz/elasticsearch-head:5
-    restart: always
-    ports:
-      - 9100:9100
-    depends_on:
-      - es-master
-      - es-slave1
-      - es-slave2
+#  es-head:
+#    container_name: es-head
+#    image: mobz/elasticsearch-head:5
+#    restart: always
+#    ports:
+#      - 9100:9100
+#    depends_on:
+#      - es-master
+#      - es-slave1
+#      - es-slave2
 
-  kibana:
-    container_name: kibana
-    hostname: kibana
-    image: docker.elastic.co/kibana/kibana:${elasticsearch_version}
-    restart: always
-    ports:
-      - 5601:5601
-    volumes:
-      - ./kibana/conf/kibana.yml:/usr/share/kibana/config/kibana.yml
-    environment:
-      - elasticsearch.hosts=http://es-master:9200
-    depends_on:
-      - es-master
-      - es-slave1
-      - es-slave2
-  cerebro:
-    image: lmenezes/cerebro
-    container_name: cerebro
-    restart: always
-    ports:
-      - "9000:9000"
-    command:
-      - -Dhosts.0.host=http://es-master:9200
-    depends_on:
-      - es-master
+#  kibana:
+#    container_name: kibana
+#    hostname: kibana
+#    image: docker.elastic.co/kibana/kibana:${elasticsearch_version}
+#    restart: always
+#    ports:
+#      - 5601:5601
+#    volumes:
+#      - ./kibana/conf/kibana.yml:/usr/share/kibana/config/kibana.yml
+#    environment:
+#      - elasticsearch.hosts=http://es-master:9200
+#    depends_on:
+#      - es-master
+#      - es-slave1
+#      - es-slave2
+#  cerebro:
+#    image: lmenezes/cerebro
+#    container_name: cerebro
+#    restart: always
+#    ports:
+#      - "9000:9000"
+#    command:
+#      - -Dhosts.0.host=http://es-master:9200
+#    depends_on:
+#      - es-master
 
 #  filebeat:
 #    # 容器名称
@@ -200,24 +200,24 @@ services:
 #      - es-slave1
 #      - es-slave2
 
-  logstash:
-    container_name: logstash
-    hostname: logstash
-    image: docker.elastic.co/logstash/logstash:${elasticsearch_version}
-    restart: always
-    volumes:
-      # 映射到容器中
-      - ./logstash/conf/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-    environment:
-      - TZ=Asia/Shanghai
-    links:
-      - es-master:es-master
-    ports:
-      - 4560:4560
-    depends_on:
-      - es-master
-      - es-slave1
-      - es-slave2
+#  logstash:
+#    container_name: logstash
+#    hostname: logstash
+#    image: docker.elastic.co/logstash/logstash:${elasticsearch_version}
+#    restart: always
+#    volumes:
+#      # 映射到容器中
+#      - ./logstash/conf/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+#    environment:
+#      - TZ=Asia/Shanghai
+#    links:
+#      - es-master:es-master
+#    ports:
+#      - 4560:4560
+#    depends_on:
+#      - es-master
+#      - es-slave1
+#      - es-slave2
 
 #  spring-elastic:
 #    container_name: spring-elastic

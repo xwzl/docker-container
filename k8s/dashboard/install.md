@@ -4,6 +4,11 @@ kubectl apply -f dashboard-admin.yaml
 
 kubectl -n kubernetes-dashboard create token admin-user
 
+kubectl apply -f dashboard-admin-token.yaml
+
+# 获取 token 永久有效
+kubectl -n kubernetes-dashboard get secret dashboard-admin-token -o jsonpath='{.data.token}' | base64 --decode
+
 kubectl -n kubernetes-dashboard edit svc kubernetes-dashboard
 
 scp /opt/k8s-offline/images/dashboard.tar root@192.168.110.124:/opt/k8s-offline/images/dashboard.tar

@@ -5,7 +5,7 @@ export http_proxy="http://127.0.0.1:7890"
 export https_proxy="http://127.0.0.1:7890"
 
 K8S_VERSION="1.33.1"
-CNI_VERSION="1.3.0"
+CNI_VERSION="1.7.1"
 CRICTL_VERSION="1.30.0"
 CONTAINERD_VERSION="1.7.13"
 ARCH="amd64"

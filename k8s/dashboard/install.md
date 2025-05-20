@@ -1,13 +1,17 @@
 kubectl apply -f recommended.yaml --validate=false
 
-kubectl apply -f dashboard-admin.yaml
+kubectl create serviceaccount my-permanent-sa -n kube-system
 
-kubectl -n kubernetes-dashboard create token admin-user
+kubectl create clusterrolebinding my-permanent-sa-binding \
+--clusterrole=cluster-admin \
+--serviceaccount=kube-system:my-permanent-sa
 
-kubectl apply -f dashboard-admin-token.yaml
+kubectl apply -f my-permanent-sa-secret.yaml
 
-# 获取 token 永久有效
-kubectl -n kubernetes-dashboard get secret dashboard-admin-token -o jsonpath='{.data.token}' | base64 --decode
+# 获取 token
+kubectl -n kube-system get secret my-permanent-sa-token -o jsonpath="{.data.token}" | base64 -d
+
+
 
 kubectl -n kubernetes-dashboard edit svc kubernetes-dashboard
 
